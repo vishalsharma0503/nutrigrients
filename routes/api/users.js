@@ -7,13 +7,12 @@ const bcrypt = require("bcryptjs");
 const keys = require("../../config/keys");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
-const gravatar = require("gravatar");
 
 router.get("/", () => {
   console.log("Users page works");
 });
 
-// @router POST api/users/register
+// @route POST api/users/register
 // @access PUBLIC
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -26,15 +25,9 @@ router.post("/register", (req, res) => {
     if (user) {
       return res.status(400).json({ msg: "user already exists" });
     } else {
-      const avatar = gravatar.url(req.body.email, {
-        s: "200",
-        r: "pg",
-        d: "mm"
-      });
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        avatar,
         password: req.body.password
       });
 
@@ -55,7 +48,7 @@ router.post("/register", (req, res) => {
   });
 });
 
-// @router POST api/users/login
+// @route POST api/users/login
 // @access PUBLIC
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
@@ -77,7 +70,7 @@ router.post("/login", (req, res) => {
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         // Create JWT payload
-        const payload = { id: user.id, name: user.name, avatar: user.avatar };
+        const payload = { id: user.id, name: user.name };
         // Sign the token
         jwt.sign(
           payload,
@@ -95,7 +88,7 @@ router.post("/login", (req, res) => {
   });
 });
 
-// @router GET api/users/current
+// @route GET api/users/current
 // @access PRIVATE
 router.get(
   "/current",
