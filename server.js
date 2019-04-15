@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const db = require("./config/keys").mongoURI;
-
+const passport = require("passport");
 const users = require("./routes/api/users");
 const profiles = require("./routes/api/profiles");
 
@@ -14,7 +14,8 @@ app.listen(port, () => {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(passport.initialize());
+require("./config/passport")(passport);
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => {
