@@ -2,9 +2,6 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const validateProfileInput = require("../validation/profile");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
-const keys = require("../../config/keys");
 const Profile = require("../models/Profile");
 
 router.get("/", () => {
@@ -16,7 +13,7 @@ router.get("/", () => {
 // @access Private
 router.post(
   "/",
-  passport.authenticate("jwt", { session: false }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateProfileInput(req.body);
     if (!isValid) {
