@@ -8,12 +8,55 @@ router.get("/", () => {
   console.log("Profiles page works");
 });
 
+// @route GET api/profiles/myprofile
+// @desc Fetch current profile
+// @access Private
+router.get(
+  "/myprofile",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    errors = {};
+    Profile.findOne({ user: req.user.id })
+      .then(profile => {
+        if (profile) {
+          return res.json(profile);
+        } else {
+          errors.error = "No profile Found";
+          return res.status(404).json(errors);
+        }
+      })
+      .catch(err => {
+        res.status(404).json(err);
+      });
+  }
+);
+
+// @route GET api/profiles/username
+// @desc fetch profile
+// @access Public
+router.get("/username/:username", (req, res) => {
+  errors = {};
+  Profile.findOne({ username: req.params.username })
+    .populate("user", ["name", "email"])
+    .then(profile => {
+      if (!profile) {
+        //console.log("username is: ", req.params.username);
+        errors.error = "Profile Not Found";
+        return res.status(404).json(errors);
+      }
+      return res.json(profile);
+    })
+    .catch(err => {
+      res.status(404).json(err);
+    });
+});
+
 // @route POST api/profiles/
 // @desc Create/Edit profile
 // @access Private
 router.post(
   "/",
-  passport.authenticate('jwt', { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateProfileInput(req.body);
     if (!isValid) {
