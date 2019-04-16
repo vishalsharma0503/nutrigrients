@@ -5,6 +5,7 @@ const db = require("./config/keys").mongoURI;
 const passport = require("passport");
 const users = require("./routes/api/users");
 const profiles = require("./routes/api/profiles");
+const idealPlate = require("./routes/api/idealPlate");
 
 const app = express();
 const port = process.env.port || 5000;
@@ -29,3 +30,4 @@ app.get("/", () => {
 
 app.use("/api/users", users);
 app.use("/api/profiles", profiles);
+app.use("/api/idealplate",idealPlate);
