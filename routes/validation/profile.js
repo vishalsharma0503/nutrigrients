@@ -43,12 +43,7 @@ module.exports = function validateProfileInput(data) {
   if (Validator.isEmpty(data.foodType)) {
     errors.foodType = "Profile - Food Type is required";
   }
-  if (isEmpty(data.foodType)) {
-    errors.foodType = "Profile - Food Type is required";
-  }
-  if (isEmpty(data.bodyShape)) {
-    errors.bodyShape = "Profile - Body Shape is required";
-  }
+  
 
   return {
     errors,

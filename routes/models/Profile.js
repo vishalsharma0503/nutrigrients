@@ -41,7 +41,11 @@ const ProfileSchema = new Schema({
   },
   bodyShape: {
     type: [String],
-    required: true
+    required: false
+  },
+  idealPlate:{
+    type: Object,
+    required:false
   }
 });
 

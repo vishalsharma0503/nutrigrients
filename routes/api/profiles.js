@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 const validateProfileInput = require("../validation/profile");
 const Profile = require("../models/Profile");
-
+const plate = require("../../utils/plate");
 router.get("/", () => {
   console.log("Profiles page works");
 });
@@ -75,6 +75,7 @@ router.post(
     if (req.body.conditions) profileFields.conditions = req.body.conditions;
     if (req.body.foodType) profileFields.foodType = req.body.foodType;
     if (req.body.bodyShape) profileFields.bodyShape = req.body.bodyShape;
+
     // Skills - Spilt into array
     // if (typeof req.body.skills !== 'undefined') {
     //     profileFields.skills = req.body.skills.split(',');
@@ -82,16 +83,31 @@ router.post(
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
+        if (
+          profile.height !== profileFields.height ||
+          profile.weight !== profileFields.weight
+        ) {
+          let data = {};
+          data.weight = profileFields.weight;
+          data.height = profileFields.height;
+          plate(data, profileFields);
+          //profileFields.idealPlate = idealPlate;
+        }
         Profile.findOneAndUpdate(
           { user: req.user.id },
           { $set: profileFields },
           { new: true }
         ).then(profile => res.json(profile));
       } else {
+        let data = {};
+        data.weight = profileFields.weight;
+        data.height = profileFields.height;
+        plate(data, profileFields);
+
         Profile.findOne({ username: profileFields.username }).then(profile => {
           if (profile) {
             errors.username = "That username already exists";
-            res.status(400).json(errors);
+            return res.status(400).json(errors);
           } else {
             // Save Profile
             new Profile(profileFields)
