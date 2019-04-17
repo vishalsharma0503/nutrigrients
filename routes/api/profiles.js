@@ -4,6 +4,8 @@ const passport = require("passport");
 const validateProfileInput = require("../validation/profile");
 const Profile = require("../models/Profile");
 const plate = require("../../utils/plate");
+const cors = require("cors");
+
 router.get("/", () => {
   console.log("Profiles page works");
 });
@@ -11,12 +13,15 @@ router.get("/", () => {
 // @route GET api/profiles/myprofile
 // @desc Fetch current profile
 // @access Private
+router.options("/myprofile", cors());
 router.get(
   "/myprofile",
+  cors(),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     errors = {};
     Profile.findOne({ user: req.user.id })
+      .populate("user", ["name"])
       .then(profile => {
         if (profile) {
           return res.json(profile);

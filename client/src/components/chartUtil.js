@@ -1,6 +1,6 @@
 import Chart from "chart.js";
 
-const chartUtil = () => {
+const chartUtil = data => {
   new Chart(document.getElementById("pie-chart"), {
     type: "doughnut",
     data: {
@@ -8,8 +8,11 @@ const chartUtil = () => {
       datasets: [
         {
           label: "Nutrients (percentage)",
-          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#c45850"],
-          data: [30, 30, 30, 10]
+          backgroundColor: ["#3e95cd", "#8e5ea2", "#3CBA86", "#c45850"],
+          data:
+            data === undefined || data === null
+              ? [30, 30, 30, 10]
+              : [data.pro, data.fat, data.carbs, data.fibre]
         }
       ]
     },
