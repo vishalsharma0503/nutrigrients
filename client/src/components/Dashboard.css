@@ -1,0 +1,64 @@
+.pc_wrapper {
+  display: grid;
+  width: 90%;
+  margin: auto;
+  margin-top: 35px;
+  grid-template-columns: 250px 1fr 5.5fr 2.5fr;
+}
+.pc {
+  display: grid;
+  padding: auto;
+  grid-template-rows: auto auto;
+  grid-gap: 0;
+  border-radius: 3px;
+  -moz-box-shadow: 0px 0px 6px 4px rgba(178, 176, 176, 0.83);
+  -webkit-box-shadow: 0px 0px 6px 4px rgba(178, 176, 176, 0.83);
+  box-shadow: 0px 0px 6px 4px rgba(178, 176, 176, 0.83);
+}
+.pc:hover {
+  -moz-box-shadow: 0px 0px 8px 6px rgba(178, 176, 176, 0.83);
+  -webkit-box-shadow: 0px 0px 8px 6px rgba(178, 176, 176, 0.83);
+  box-shadow: 0px 0px 8px 6px rgba(178, 176, 176, 0.83);
+}
+.pcBox1 {
+  text-align: center;
+  margin-bottom: 0;
+  padding-top: 20px;
+  background-color: rgb(241, 101, 101);
+  border-radius: 3px;
+  border: 0px outset #cccccc;
+  border-bottom: 0;
+  position: relative;
+  opacity: 1;
+  height: 255px;
+  width: 250px;
+}
+.profile_name {
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+  font-weight: 800;
+  font-family: Helvetica;
+}
+.pcBox2 {
+  text-align: center;
+  padding-top: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  border: 0px outset #cccccc;
+  position: relative;
+  opacity: 1;
+  height: 255px;
+  width: 250px;
+}
+.profile_pic {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background: url("./img_avatar.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
