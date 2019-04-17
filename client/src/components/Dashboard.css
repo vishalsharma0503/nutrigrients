@@ -62,3 +62,12 @@
   height: 200px;
   border-radius: 50%;
 }
+.sep_line {
+  border-left: 6px solid rgba(195, 195, 195, 0.7);
+  height: 200px;
+  margin: auto;
+  border-radius: 3px;
+}
+.chart {
+  padding-top: 30px;
+}

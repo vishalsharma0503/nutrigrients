@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import "./Dashboard.css";
+import ChartUtil from "./chartUtil";
 
 class ProfileCard extends Component {
   state = {};
+  componentDidMount() {
+    ChartUtil();
+  }
   render() {
     return (
       <div>
@@ -15,7 +19,9 @@ class ProfileCard extends Component {
             <div className="pcBox2">Age : 22</div>
           </div>
           <div className="sep_line" />
-          <div className="chart" />
+          <div className="chart">
+            <canvas id="pie-chart" width="600" height="450" />
+          </div>
           <div className="chart_details" />
         </div>
       </div>
