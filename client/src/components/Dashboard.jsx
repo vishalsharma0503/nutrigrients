@@ -2,22 +2,26 @@ import React, { Component } from "react";
 import "./Dashboard.css";
 import ChartUtil from "./chartUtil";
 
-class ProfileCard extends Component {
-  state = {
-    jwttoken:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYjZjZjgwZGE4M2NmOTA4YTUxNzZkOSIsIm5hbWUiOiJUZXN0IFRlc3QiLCJpYXQiOjE1NTU1MTYzODUsImV4cCI6MTU1NTUxOTk4NX0.Ck7UvDOTL42uxCpccDbcO9uzp30vSLl1_ey1FG0XGDs",
-    username: "",
-    user: { _id: "", name: "" },
-    age: "",
-    height: "",
-    weight: "",
-    gender: "",
-    allergies: "",
-    conditions: "",
-    foodType: [],
-    bodyShape: [],
-    idealPlate: {}
-  };
+class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    var token = props.match.params.token.split(":")[1];
+    this.state = {
+      jwttoken: "Bearer " + token,
+      username: "",
+      user: { _id: "", name: "" },
+      age: "",
+      height: "",
+      weight: "",
+      gender: "",
+      allergies: "",
+      conditions: "",
+      foodType: [],
+      bodyShape: [],
+      idealPlate: {}
+    };
+    //console.log("TOKEN -> ", "Bearer " + token);
+  }
   componentDidMount() {
     var newState;
     fetch("http://localhost:5000/api/profiles/myprofile", {
@@ -150,4 +154,4 @@ class ProfileCard extends Component {
   }
 }
 
-export default ProfileCard;
+export default Dashboard;

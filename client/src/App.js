@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Dashboard from "./components/Dashboard";
+
 import "./App.css";
 
 class App extends Component {
@@ -17,6 +19,7 @@ class App extends Component {
           <div className="container">
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route path="/dashboard/:token" component={Dashboard} />
           </div>
           <Footer />
         </div>
