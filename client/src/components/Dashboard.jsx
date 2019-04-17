@@ -5,7 +5,7 @@ import ChartUtil from "./chartUtil";
 class ProfileCard extends Component {
   state = {
     jwttoken:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYjZjZjgwZGE4M2NmOTA4YTUxNzZkOSIsIm5hbWUiOiJUZXN0IFRlc3QiLCJpYXQiOjE1NTU1MTI2NjYsImV4cCI6MTU1NTUxNjI2Nn0.Oa6xuvsAo_I04P9IvAfKCK_DUWi9MMKgjVdbGMI1y8w",
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYjZjZjgwZGE4M2NmOTA4YTUxNzZkOSIsIm5hbWUiOiJUZXN0IFRlc3QiLCJpYXQiOjE1NTU1MTYzODUsImV4cCI6MTU1NTUxOTk4NX0.Ck7UvDOTL42uxCpccDbcO9uzp30vSLl1_ey1FG0XGDs",
     username: "",
     user: { _id: "", name: "" },
     age: "",
@@ -123,22 +123,22 @@ class ProfileCard extends Component {
                   <tr>
                     <td className="c1">Proteins</td>
                     <td className="c2">&nbsp; : &nbsp;</td>
-                    <td className="c3">{this.state.idealPlate.pro}</td>
+                    <td className="c3">{this.state.idealPlate.pro + " %"}</td>
                   </tr>
                   <tr>
                     <td className="c1">Fats</td>
                     <td className="c2">&nbsp; : &nbsp;</td>
-                    <td className="c3">{this.state.idealPlate.fat}</td>
+                    <td className="c3">{this.state.idealPlate.fat + " %"}</td>
                   </tr>
                   <tr>
                     <td className="c1">Carbs</td>
                     <td className="c2">&nbsp; : &nbsp;</td>
-                    <td className="c3">{this.state.idealPlate.carbs}</td>
+                    <td className="c3">{this.state.idealPlate.carbs + " %"}</td>
                   </tr>
                   <tr>
                     <td className="c1">Fibres</td>
                     <td className="c2">&nbsp; : &nbsp;</td>
-                    <td className="c3">{this.state.idealPlate.fibre}</td>
+                    <td className="c3">{this.state.idealPlate.fibre + " %"}</td>
                   </tr>
                 </table>
               </div>

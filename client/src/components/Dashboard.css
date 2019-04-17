@@ -21,8 +21,10 @@
   -moz-box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
   box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .pc:hover {
+  transform: scale(1.1);
   -moz-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
@@ -89,12 +91,12 @@
   border-radius: 50%;
 }
 .sep_line {
-  border-left: 6px solid rgba(195, 195, 195, 0.7);
+  border-left: 6px solid rgba(195, 195, 195, 0.75);
   height: 200px;
   margin: auto auto auto 40px;
-
   border-radius: 3px;
 }
+
 .chart {
   padding-top: 10px;
 }
@@ -153,8 +155,10 @@
   -moz-box-shadow: 0px 0px 3px 4px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
   box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .chart_box:hover {
+  transform: scale(1.1);
   -moz-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
