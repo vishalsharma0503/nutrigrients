@@ -5,7 +5,7 @@ import ChartUtil from "./chartUtil";
 class ProfileCard extends Component {
   state = {
     jwttoken:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYjZjZjgwZGE4M2NmOTA4YTUxNzZkOSIsIm5hbWUiOiJUZXN0IFRlc3QiLCJpYXQiOjE1NTU1MDkzODEsImV4cCI6MTU1NTUxMjk4MX0.XCcHp9NGZCJtn7j7_A72rzQr6hy5R35ZpkrHcDt0A_8",
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYjZjZjgwZGE4M2NmOTA4YTUxNzZkOSIsIm5hbWUiOiJUZXN0IFRlc3QiLCJpYXQiOjE1NTU1MTI2NjYsImV4cCI6MTU1NTUxNjI2Nn0.Oa6xuvsAo_I04P9IvAfKCK_DUWi9MMKgjVdbGMI1y8w",
     username: "",
     user: { _id: "", name: "" },
     age: "",
@@ -115,7 +115,7 @@ class ProfileCard extends Component {
             </div>
             <div className="chart_box">
               <div className="nutrients_details">
-                <div className="category">Category :</div>
+                <div className="category">CATEGORY :</div>
                 <div className="category_value">
                   {this.state.idealPlate.category}
                 </div>

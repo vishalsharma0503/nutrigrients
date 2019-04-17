@@ -1,7 +1,7 @@
 .pc_wrapper {
   margin: 0;
   z-index: -1;
-  background-image: url("./wave2.png");
+  background-image: url("./wall3.jpg");
   background-size: cover;
 }
 .pc_wrapper2 {
@@ -118,7 +118,7 @@
   position: relative;
   margin-top: 10px;
   text-align: center;
-  color: rgba(105, 105, 105, 0.9);
+  color: rgba(90, 90, 90, 0.9);
   font-weight: 700;
 }
 .category_value {
@@ -143,7 +143,7 @@
   top: 150px;
   padding-top: 20px;
   background-color: rgb(255, 255, 255);
-  border-radius: 3px;
+  border-radius: 5px;
   border: 0px outset #cccccc;
   position: relative;
   opacity: 1;
