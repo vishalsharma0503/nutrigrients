@@ -15,6 +15,7 @@
 .pc {
   display: grid;
   padding: auto;
+  background-color: rgb(241, 101, 101);
   grid-template-rows: auto auto;
   grid-gap: 0;
   border-radius: 3px;
@@ -25,15 +26,17 @@
 }
 .pc:hover {
   transform: scale(1.1);
+  background-color: rgb(231, 74, 74);
   -moz-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
 }
 .pcBox1 {
+  z-index: 4;
   text-align: center;
   margin-bottom: 0;
   padding-top: 20px;
-  background-color: rgb(241, 101, 101);
+  background-color: transparent;
   border-radius: 3px;
   border: 0px outset #cccccc;
   border-bottom: 0;
@@ -46,11 +49,13 @@
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   margin-top: 10px;
   text-align: center;
+  text-transform: uppercase;
   color: white;
   font-weight: 800;
   font-family: Helvetica;
 }
 .pcBox2 {
+  z-index: 2;
   text-align: center;
   padding-top: 20px;
   background-color: rgb(255, 255, 255);
