@@ -147,6 +147,7 @@ class Dashboard extends Component {
                 </table>
               </div>
             </div>
+            <div className="spacebox" />
           </div>
         </div>
       </div>

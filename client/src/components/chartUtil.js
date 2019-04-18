@@ -8,7 +8,7 @@ const chartUtil = data => {
       datasets: [
         {
           label: "Nutrients (percentage)",
-          backgroundColor: ["#c45850", "#8e5ea2", "#3CBA86", "#3e95cd"],
+          backgroundColor: ["#c45850", "#FFF000", "#3CBA86", "#14C4B9"],
           data:
             data === undefined || data === null
               ? [30, 30, 30, 10]
