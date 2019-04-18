@@ -117,34 +117,40 @@ class Dashboard extends Component {
               <h1>My Ideal Plate</h1>
               <canvas id="pie-chart" width="600" height="450" />
             </div>
-            <div className="chart_box">
-              <div className="nutrients_details">
-                <div className="category">CATEGORY :</div>
-                <div className="category_value">
-                  {this.state.idealPlate.category}
+            <div className="chart_box_container">
+              <div className="chart_box">
+                <div className="nutrients_details">
+                  <div className="category">CATEGORY :</div>
+                  <div className="category_value">
+                    {this.state.idealPlate.category}
+                  </div>
+                  <table className="pcBox2ValuesTable">
+                    <tr>
+                      <td className="c1">Proteins</td>
+                      <td className="c2">&nbsp; : &nbsp;</td>
+                      <td className="c3">{this.state.idealPlate.pro + " %"}</td>
+                    </tr>
+                    <tr>
+                      <td className="c1">Fats</td>
+                      <td className="c2">&nbsp; : &nbsp;</td>
+                      <td className="c3">{this.state.idealPlate.fat + " %"}</td>
+                    </tr>
+                    <tr>
+                      <td className="c1">Carbs</td>
+                      <td className="c2">&nbsp; : &nbsp;</td>
+                      <td className="c3">
+                        {this.state.idealPlate.carbs + " %"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="c1">Fibres</td>
+                      <td className="c2">&nbsp; : &nbsp;</td>
+                      <td className="c3">
+                        {this.state.idealPlate.fibre + " %"}
+                      </td>
+                    </tr>
+                  </table>
                 </div>
-                <table className="pcBox2ValuesTable">
-                  <tr>
-                    <td className="c1">Proteins</td>
-                    <td className="c2">&nbsp; : &nbsp;</td>
-                    <td className="c3">{this.state.idealPlate.pro + " %"}</td>
-                  </tr>
-                  <tr>
-                    <td className="c1">Fats</td>
-                    <td className="c2">&nbsp; : &nbsp;</td>
-                    <td className="c3">{this.state.idealPlate.fat + " %"}</td>
-                  </tr>
-                  <tr>
-                    <td className="c1">Carbs</td>
-                    <td className="c2">&nbsp; : &nbsp;</td>
-                    <td className="c3">{this.state.idealPlate.carbs + " %"}</td>
-                  </tr>
-                  <tr>
-                    <td className="c1">Fibres</td>
-                    <td className="c2">&nbsp; : &nbsp;</td>
-                    <td className="c3">{this.state.idealPlate.fibre + " %"}</td>
-                  </tr>
-                </table>
               </div>
             </div>
             <div className="spacebox" />
