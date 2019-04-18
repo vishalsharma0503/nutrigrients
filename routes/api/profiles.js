@@ -6,9 +6,9 @@ const Profile = require("../models/Profile");
 const plate = require("../../utils/plate");
 const cors = require("cors");
 
-router.get("/", () => {
-  console.log("Profiles page works");
-});
+// router.get("/", () => {
+//   console.log("Profiles page works");
+// });
 
 // @route GET api/profiles/myprofile
 // @desc Fetch current profile
@@ -59,8 +59,10 @@ router.get("/username/:username", (req, res) => {
 // @route POST api/profiles/
 // @desc Create/Edit profile
 // @access Private
+router.options("/", cors());
 router.post(
   "/",
+  cors(),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateProfileInput(req.body);

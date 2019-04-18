@@ -40,9 +40,9 @@ module.exports = function validateProfileInput(data) {
   ) {
     errors.gender = "Profile - Invalid gender value";
   }
-  if (Validator.isEmpty(data.foodType)) {
-    errors.foodType = "Profile - Food Type is required";
-  }
+  // if (Validator.isEmpty(data.foodType)) {
+  //   errors.foodType = "Profile - Food Type is required";
+  // }
   
 
   return {

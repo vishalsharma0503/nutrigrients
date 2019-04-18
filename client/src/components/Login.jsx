@@ -26,7 +26,7 @@ class Login extends Component {
       .then(res => {
         //console.log(res.data.token);
         var t = res.data.token.split(" ");
-        this.props.history.push("/dashboard/:" + t[1]);
+        this.props.history.push("/dashboard/" + t[1]);
       })
       .catch(err => this.setState({ errors: err.response.data }));
   }

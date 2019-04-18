@@ -6,7 +6,8 @@ import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
-
+import EditProfile from "./components/EditProfile";
+import CreateProfile from "./components/CreateProfile";
 import "./App.css";
 
 class App extends Component {
@@ -19,6 +20,8 @@ class App extends Component {
           <div className="c">
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/createprofile/:token" component={CreateProfile} />
+            <Route exact path="/editprofile/:token" component={EditProfile} />
             <Route path="/dashboard/:token" component={Dashboard} />
           </div>
           <Footer />

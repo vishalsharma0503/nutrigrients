@@ -5,7 +5,7 @@ import ChartUtil from "./chartUtil";
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    var token = props.match.params.token.split(":")[1];
+    var token = props.match.params.token;
     this.state = {
       jwttoken: "Bearer " + token,
       username: "",
@@ -18,7 +18,8 @@ class Dashboard extends Component {
       conditions: "",
       foodType: [],
       bodyShape: [],
-      idealPlate: {}
+      idealPlate: {},
+      token:token
     };
     //console.log("TOKEN -> ", "Bearer " + token);
   }
@@ -36,6 +37,10 @@ class Dashboard extends Component {
       })
       .then(responseJson => {
         newState = responseJson;
+        //console.log(responseJson);
+        if(responseJson.error !== undefined){
+          this.props.history.push("/createprofile/"+this.state.token);
+        }
         this.setState({ jwttoken: this.state.jwttoken, ...newState });
         ChartUtil(responseJson.idealPlate);
       })
@@ -87,7 +92,7 @@ class Dashboard extends Component {
                       {this.state.allergies === undefined ||
                       this.state.allergies === null ||
                       (typeof this.state.allergies === "object" &&
-                        this.state.allergies.length == 0)
+                        this.state.allergies.length === 0)
                         ? "nil"
                         : this.state.allergies}
                     </td>
@@ -99,7 +104,7 @@ class Dashboard extends Component {
                       {this.state.conditions === undefined ||
                       this.state.conditions === null ||
                       (typeof this.state.conditions === "object" &&
-                        this.state.conditions.length == 0)
+                        this.state.conditions.length === 0)
                         ? "nil"
                         : this.state.conditions}
                     </td>

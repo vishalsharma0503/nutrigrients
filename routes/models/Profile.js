@@ -8,7 +8,7 @@ const ProfileSchema = new Schema({
   },
   username: {
     type: String,
-    required: true,
+    required: false,
     max: 30
   },
   age: {
@@ -28,19 +28,19 @@ const ProfileSchema = new Schema({
     required: true
   },
   allergies: {
-    type: [String],
+    type: String,
     required: false
   },
   conditions: {
-    type: [String],
+    type: String,
     required: false
   },
   foodType: {
-    type: [String],
+    type: String,
     required: true
   },
   bodyShape: {
-    type: [String],
+    type: String,
     required: false
   },
   idealPlate:{
