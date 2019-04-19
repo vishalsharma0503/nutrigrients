@@ -5,12 +5,13 @@ class CreateProfile extends Component {
     super(props);
     var token = props.match.params.token;
     this.state = {
+      token: token,
       jwttoken: "Bearer " + token,
       username: "",
-      user: { _id: "", name: "" },
-      age: 0,
-      height: 0,
-      weight: 0,
+      user: { _id: "" },
+      age: "",
+      height: "",
+      weight: "",
       gender: "",
       allergies: "",
       conditions: "",
@@ -28,21 +29,15 @@ class CreateProfile extends Component {
       e.target.name === "weight"
     ) {
       this.setState({ [e.target.name]: Number(e.target.value) });
-      console.log(
-        "onchange---- " + e.target.name + " - " + Number(e.target.value)
-      );
     } else {
       this.setState({ [e.target.name]: e.target.value });
-      console.log(
-        "onchange---- " + e.target.name + " - " + typeof e.target.value
-      );
     }
   }
   onSubmit(e) {
     e.preventDefault();
     const newProfile = {
       username: this.state.username,
-      user: { _id: this.state._id, name: this.state.name },
+      user: { _id: this.state._id },
       age: Number(this.state.age),
       height: Number(this.state.height),
       weight: Number(this.state.weight),
@@ -53,6 +48,7 @@ class CreateProfile extends Component {
       bodyShape: this.state.bodyShape,
       idealPlate: this.state.idealPlate
     };
+    console.log(newProfile);
     console.log(this.state.jwttoken);
     console.log(typeof this.state.weight);
     console.log(typeof this.state.height);
@@ -62,6 +58,7 @@ class CreateProfile extends Component {
       crossDomain: true,
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authorization: this.state.jwttoken
       },
       body: JSON.stringify(newProfile)
@@ -71,9 +68,12 @@ class CreateProfile extends Component {
       })
       .then(responseJson => {
         console.log(responseJson);
-        //if (responseJson.error !== undefined) {
-        //this.props.history.push("/createprofile/" + this.state.token);
-        // }
+        if (responseJson.error === undefined) {
+          console.log("Jai mahesmati");
+          this.props.history.push("/dashboard/" + this.state.token);
+        } else{
+          console.log(responseJson.error);
+        }
         //this.setState({ jwttoken: this.state.jwttoken, ...newState });
       })
       .catch(err => {
@@ -103,6 +103,58 @@ class CreateProfile extends Component {
               </p>
               <small className="d-block pb-3">* = required field</small>
               <form onSubmit={this.onSubmit}>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control form-control-lg"
+                    placeholder="username - Must be unique"
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.onChange}
+                  />
+                  <small className="form-text text-muted">
+                    A unique name that identifies you and your account
+                  </small>
+                </div>
+                <div className="form-group">
+                  <input
+                    type="number"
+                    className="form-control form-control-lg"
+                    placeholder="Age (Years)"
+                    name="age"
+                    value={this.state.age}
+                    onChange={this.onChange}
+                  />
+                  <small className="form-text text-muted">
+                    Mention your Age here
+                  </small>
+                </div>
+                <div className="form-group">
+                  <input
+                    type="number"
+                    className="form-control form-control-lg"
+                    placeholder="Height (Meters)"
+                    name="height"
+                    value={this.state.height}
+                    onChange={this.onChange}
+                  />
+                  <small className="form-text text-muted">
+                    Mention your Height here
+                  </small>
+                </div>
+                <div className="form-group">
+                  <input
+                    type="number"
+                    className="form-control form-control-lg"
+                    placeholder="Weight (KG)"
+                    name="weight"
+                    value={this.state.weight}
+                    onChange={this.onChange}
+                  />
+                  <small className="form-text text-muted">
+                    Mention your Weight here
+                  </small>
+                </div>
                 <div className="form-group">
                   <select
                     className="form-control form-control-lg"
@@ -155,45 +207,7 @@ class CreateProfile extends Component {
                     Mention your Gender here
                   </small>
                 </div>
-                <div className="form-group">
-                  <input
-                    type="number"
-                    className="form-control form-control-lg"
-                    placeholder="Age (Years)"
-                    name="age"
-                    value={this.state.age}
-                    onChange={this.onChange}
-                  />
-                  <small className="form-text text-muted">
-                    Mention your Age here
-                  </small>
-                </div>
-                <div className="form-group">
-                  <input
-                    type="number"
-                    className="form-control form-control-lg"
-                    placeholder="Height (Meters)"
-                    name="height"
-                    value={this.state.height}
-                    onChange={this.onChange}
-                  />
-                  <small className="form-text text-muted">
-                    Mention your Height here
-                  </small>
-                </div>
-                <div className="form-group">
-                  <input
-                    type="number"
-                    className="form-control form-control-lg"
-                    placeholder="Weight (KG)"
-                    name="weight"
-                    value={this.state.weight}
-                    onChange={this.onChange}
-                  />
-                  <small className="form-text text-muted">
-                    Mention your Weight here
-                  </small>
-                </div>
+
                 <div className="form-group">
                   <input
                     type="text"
