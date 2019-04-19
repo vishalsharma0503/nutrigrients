@@ -3,18 +3,20 @@
   z-index: -1;
   background-image: url("./wall3.jpg");
   background-size: cover;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .pc_wrapper2 {
   display: grid;
-  width: 80%;
-  margin: auto;
+  margin: 0;
   margin-top: 50px;
-  grid-template-columns: 250px 1fr 5.5fr 2.5fr;
+  grid-template-columns: auto 0.3fr auto auto;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-
 .pc {
   display: grid;
   padding: auto;
+  max-width: 250px;
+  margin: 0 auto 0 auto;
   background-color: rgb(241, 101, 101);
   grid-template-rows: auto auto;
   grid-gap: 0;
@@ -31,6 +33,7 @@
   -webkit-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
 }
+
 .pcBox1 {
   z-index: 4;
   text-align: center;
@@ -98,12 +101,14 @@
 .sep_line {
   border-left: 6px solid rgba(195, 195, 195, 0.75);
   height: 200px;
-  margin: auto auto auto 40px;
+  max-width: 100px;
+  margin: auto auto auto auto;
   border-radius: 3px;
 }
 
 .chart {
   padding-top: 10px;
+  max-width: 600px;
 }
 .chart > h1 {
   text-align: center;
@@ -145,26 +150,154 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.chart_box {
-  text-align: center;
+#pie-chart {
+  max-width: 600px;
+}
+.chart_box_container {
   top: 150px;
-  padding-top: 20px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 5px;
-  border: 0px outset #cccccc;
   position: relative;
-  opacity: 1;
   height: 255px;
   width: 270px;
+  background-color: transparent;
+  border-radius: 3px;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.chart_box {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgb(255, 255, 255);
+  border: 0px outset #cccccc;
+  opacity: 1;
   border-radius: 3px;
   -moz-box-shadow: 0px 0px 3px 4px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
   box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
-  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .chart_box:hover {
-  transform: scale(1.1);
   -moz-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
+}
+.chart_box_container:hover {
+  transform: scale(1.1);
+}
+.spacebox {
+  height: 30px;
+}
+
+@media (max-width: 1320px) {
+  .pc_wrapper2 {
+    grid-column-gap: 0px;
+  }
+  .pc {
+    width: 250px;
+    margin: 0 auto 0 auto;
+  }
+  .sep_line {
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .chart_box_container {
+    top: 130px;
+    margin: 30px auto 0 0;
+  }
+  .spacebox {
+    height: 30px;
+  }
+}
+@media (max-width: 1280px) {
+  .pc_wrapper2 {
+    grid-column-gap: 0px;
+  }
+  .chart {
+    max-width: 550px;
+  }
+  #pie-chart {
+    max-width: 550px;
+  }
+  .pc {
+    margin-right: 0;
+  }
+  .pc:hover {
+    transform: scale(1.04);
+  }
+  .chart_box {
+    padding-top: 10px;
+  }
+  .chart_box_container {
+    height: 250px;
+    width: 240px;
+  }
+  .chart_box_container:hover {
+    transform: scale(1.04);
+  }
+}
+@media (max-width: 1130px) {
+  .chart {
+    max-width: 500px;
+  }
+  #pie-chart {
+    max-width: 500px;
+  }
+}
+@media (max-width: 1020px) {
+  .pc_wrapper2 {
+    grid-template-columns: auto 0.1fr auto;
+    grid-column-gap: 0;
+  }
+  .chart {
+    max-width: 530px;
+  }
+  #pie-chart {
+    max-width: 530px;
+  }
+  .chart_box_container {
+    top: 0px;
+    margin: 50px auto 0 30px;
+  }
+  .nutrients-details {
+    margin-bottom: 20px;
+  }
+  .pc {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+}
+@media (max-width: 870px) {
+  .pc {
+    margin-left: 20px;
+    margin-right: 0px;
+  }
+}
+@media (max-width: 810px) {
+  .pc_wrapper2 {
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+  }
+  .pc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sep_line {
+    height: 0px;
+  }
+  .chart {
+    margin: auto;
+    max-width: 430px;
+  }
+  #pie-chart {
+    max-width: 430px;
+    max-height: 340px;
+  }
+  .chart_box_container {
+    top: 0px;
+    margin: 50px auto 0 auto;
+    height: 255px;
+    width: 260px;
+  }
+  .spacebox {
+    height: 30px;
+  }
 }
