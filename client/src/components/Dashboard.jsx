@@ -7,6 +7,7 @@ class Dashboard extends Component {
     super(props);
     var token = props.match.params.token;
     this.state = {
+      token: token,
       jwttoken: "Bearer " + token,
       username: "",
       user: { _id: "", name: "" },
@@ -18,8 +19,7 @@ class Dashboard extends Component {
       conditions: "",
       foodType: [],
       bodyShape: [],
-      idealPlate: {},
-      token:token
+      idealPlate: {}
     };
     //console.log("TOKEN -> ", "Bearer " + token);
   }
@@ -38,8 +38,8 @@ class Dashboard extends Component {
       .then(responseJson => {
         newState = responseJson;
         //console.log(responseJson);
-        if(responseJson.error !== undefined){
-          this.props.history.push("/createprofile/"+this.state.token);
+        if (responseJson.error !== undefined) {
+          this.props.history.push("/createprofile/" + this.state.token);
         }
         this.setState({ jwttoken: this.state.jwttoken, ...newState });
         ChartUtil(responseJson.idealPlate);
@@ -48,9 +48,12 @@ class Dashboard extends Component {
         console.log(err);
       });
   }
+  pushToEditPage = () => {
+    this.props.history.push("/editprofile/" + this.state.token);
+  };
   render() {
     return (
-      <div classname="wrapper">
+      <div className="wrapper">
         <div className="pc_wrapper">
           <div className="pc_wrapper2">
             <div className="pc">
@@ -123,6 +126,15 @@ class Dashboard extends Component {
               <canvas id="pie-chart" width="600" height="450" />
             </div>
             <div className="chart_box_container">
+              <div className="edit_button" onClick={this.pushToEditPage}>
+                EDIT PROFILE
+              </div>
+              <div className="share_group">
+                <div>Share Profile :</div>
+                <i className="fab fa-instagram" />
+                <i className="fab fa-facebook" />
+                <i className="fab fa-twitter" />
+              </div>
               <div className="chart_box">
                 <div className="nutrients_details">
                   <div className="category">CATEGORY :</div>

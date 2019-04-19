@@ -158,9 +158,37 @@
   position: relative;
   height: 255px;
   width: 270px;
+  display: grid;
+  grid-template-rows: auto auto auto;
   background-color: transparent;
   border-radius: 3px;
+}
+.edit_button {
+  margin: 0 auto 8px auto;
+  cursor: pointer;
+  text-align: center;
+  border: 0px solid black;
+  color: white;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    rgba(16, 129, 182, 0.74),
+    rgba(4, 69, 99, 0.74)
+  );
+  border-radius: 40px;
+  padding: 10px 25px 10px 25px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.edit_button:hover {
+  transform: translateX(-3px) translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+.share_group {
+  font-weight: 700;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  margin: 10px 5px 25px 5px;
+  padding-left: 14px;
 }
 .chart_box {
   text-align: center;
@@ -170,18 +198,18 @@
   border: 0px outset #cccccc;
   opacity: 1;
   border-radius: 3px;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   -moz-box-shadow: 0px 0px 3px 4px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
   box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
 }
 .chart_box:hover {
+  transform: scale(1.1);
   -moz-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
 }
-.chart_box_container:hover {
-  transform: scale(1.1);
-}
+
 .spacebox {
   height: 30px;
 }
@@ -229,9 +257,6 @@
   .chart_box_container {
     height: 250px;
     width: 240px;
-  }
-  .chart_box_container:hover {
-    transform: scale(1.04);
   }
 }
 @media (max-width: 1130px) {
