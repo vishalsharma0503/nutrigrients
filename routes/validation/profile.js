@@ -9,10 +9,10 @@ module.exports = function validateProfileInput(data) {
   data.height = !isEmpty(data.height) ? Number(data.height) : 0;
   data.weight = !isEmpty(data.weight) ? Number(data.weight) : 0;
   data.gender = !isEmpty(data.gender) ? data.gender : "";
-  data.allergies = !isEmpty(data.allergies) ? data.allergies : [];
-  data.conditions = !isEmpty(data.conditions) ? data.conditions : [];
-  data.foodType = !isEmpty(data.foodType) ? data.foodType : [];
-  data.bodyShape = !isEmpty(data.bodyShape) ? data.bodyShape : [];
+  data.allergies = !isEmpty(data.allergies) ? data.allergies : "";
+  data.conditions = !isEmpty(data.conditions) ? data.conditions : "";
+  data.foodType = !isEmpty(data.foodType) ? data.foodType : "";
+  data.bodyShape = !isEmpty(data.bodyShape) ? data.bodyShape : "";
   
   if (typeof data.age !== "number" || data.age <= 0) {
     errors.age = "Profile - Invalid Age value";

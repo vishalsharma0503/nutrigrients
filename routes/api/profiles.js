@@ -66,6 +66,7 @@ router.post(
   cors(),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    console.log(req.body);
     const { errors, isValid } = validateProfileInput(req.body);
     if (!isValid) {
       // Return any errors with 400 status
