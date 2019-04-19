@@ -19,21 +19,43 @@ class EditProfile extends Component {
       bodyShape: "",
       idealPlate: {}
     };
+    fetch("/api/profiles/myprofile", {
+      crossDomain: true,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: this.state.jwttoken
+      }
+    })
+      .then(res => {
+        return res.json();
+      }).then(responseJson=>{
+       let receivedState = responseJson;
+        console.log(receivedState);
+        this.setState = {
+          jwttoken: "Bearer " + receivedState.token,
+          username: receivedState.username,
+          user: { _id: receivedState._id },
+          age: receivedState.age,
+          height: receivedState.height,
+          weight: receivedState.weight,
+          gender: receivedState.gender,
+          allergies: receivedState.allergies,
+          conditions: receivedState.conditions,
+          foodType: receivedState.foodType,
+          bodyShape: receivedState.bodyShape,
+          idealPlate: receivedState.idealPlate,
+        };
+        console.log(receivedState.idealPlate)
+      })
+      .catch(err => {
+        console.log(err);
+      });
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  componentDidMount(){
-    fetch("/api/profiles/myprofile",{
-      crossDomain:true,
-      method:"GET",
-      headers:{
-        'Content-Type':"application/json",
-        Authorization:this.state.jwttoken
-      }
-    }).then(res=>{
-      console.log(res.json());
-    }).catch(err=>{console.log(err)});
-
+  componentDidMount() {
+    
   }
   onChange(e) {
     if (
@@ -61,12 +83,7 @@ class EditProfile extends Component {
       bodyShape: this.state.bodyShape,
       idealPlate: this.state.idealPlate
     };
-    console.log(newProfile);
-    console.log(this.state.jwttoken);
-    console.log(typeof this.state.weight);
-    console.log(typeof this.state.height);
-    console.log(typeof this.state.age);
-    console.log(typeof this.state.gender);
+
     fetch("http://localhost:5000/api/profiles/", {
       crossDomain: true,
       method: "POST",
