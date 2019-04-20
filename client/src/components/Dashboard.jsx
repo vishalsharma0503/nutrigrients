@@ -28,7 +28,7 @@ class Dashboard extends Component {
       idealPlate: {},
 
     };
-    //console.log("TOKEN -> ", "Bearer " + token);
+    console.log("TOKEN -> ", "Bearer " + token);
   }
   componentDidMount() {
     var newState;
