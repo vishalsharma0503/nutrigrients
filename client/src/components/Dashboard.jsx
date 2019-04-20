@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Dashboard.css";
 import ChartUtil from "./chartUtil";
+import Header from "./Header";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -17,9 +18,15 @@ class Dashboard extends Component {
       gender: "",
       allergies: "",
       conditions: "",
-      foodType: [],
-      bodyShape: [],
-      idealPlate: {}
+      foodType: "",
+      bodyShape: "",
+      bio:"",
+      facebook:"",
+      twitter:"",
+      instagram:"",
+      date:"",
+      idealPlate: {},
+
     };
     //console.log("TOKEN -> ", "Bearer " + token);
   }
@@ -42,6 +49,7 @@ class Dashboard extends Component {
           this.props.history.push("/createprofile/" + this.state.token);
         }
         this.setState({ jwttoken: this.state.jwttoken, ...newState });
+        console.log(responseJson.idealPlate)
         ChartUtil(responseJson.idealPlate);
       })
       .catch(err => {
@@ -53,7 +61,9 @@ class Dashboard extends Component {
   };
   render() {
     return (
+      
       <div className="wrapper">
+      <Header isAuthenticated={(this.state.token!==undefined)?this.state.token:""}></Header>
         <div className="pc_wrapper">
           <div className="pc_wrapper2">
             <div className="pc">

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import Header from "./Header";
 class CreateProfile extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +17,11 @@ class CreateProfile extends Component {
       conditions: "",
       foodType: "",
       bodyShape: "",
+      bio: "",
+      facebook: "",
+      twitter: "",
+      instagram: "",
+      date: "",
       idealPlate: {}
     };
     this.onChange = this.onChange.bind(this);
@@ -36,6 +41,7 @@ class CreateProfile extends Component {
   onSubmit(e) {
     e.preventDefault();
     const newProfile = {
+      token: this.state.token,
       username: this.state.username,
       user: { _id: this.state._id },
       age: Number(this.state.age),
@@ -46,14 +52,13 @@ class CreateProfile extends Component {
       conditions: this.state.conditions,
       foodType: this.state.foodType,
       bodyShape: this.state.bodyShape,
-      idealPlate: this.state.idealPlate
+      idealPlate: this.state.idealPlate,
+      bio: this.state.bio,
+      facebook: this.state.facebook,
+      twitter: this.state.twitter,
+      instagram: this.state.instagram,
+      date: this.state.date
     };
-    console.log(newProfile);
-    console.log(this.state.jwttoken);
-    console.log(typeof this.state.weight);
-    console.log(typeof this.state.height);
-    console.log(typeof this.state.age);
-    console.log(typeof this.state.gender);
     fetch("http://localhost:5000/api/profiles/", {
       crossDomain: true,
       method: "POST",
@@ -71,7 +76,7 @@ class CreateProfile extends Component {
         if (responseJson.error === undefined) {
           console.log("Jai mahesmati");
           this.props.history.push("/dashboard/" + this.state.token);
-        } else{
+        } else {
           console.log(responseJson.error);
         }
         //this.setState({ jwttoken: this.state.jwttoken, ...newState });
@@ -94,6 +99,11 @@ class CreateProfile extends Component {
   render() {
     return (
       <div className="create-profile">
+        <Header
+          isAuthenticated={
+            this.state.token !== undefined ? this.state.token : ""
+          }
+        />
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
@@ -227,6 +237,8 @@ class CreateProfile extends Component {
                     className="form-control form-control-lg"
                     placeholder="A short bio of yourself"
                     name="bio"
+                    value={this.state.bio}
+                    onChange={this.onChange}
                   />
                   <small className="form-text text-muted">
                     Tell us a little about yourself
@@ -239,21 +251,6 @@ class CreateProfile extends Component {
                   </button>
                   <span className="text-muted">Optional</span>
                 </div>
-
-                <div className="input-group mb-3">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text">
-                      <i className="fab fa-twitter" />
-                    </span>
-                  </div>
-                  <input
-                    type="text"
-                    className="form-control form-control-lg"
-                    placeholder="Twitter Profile URL"
-                    name="twitter"
-                  />
-                </div>
-
                 <div className="input-group mb-3">
                   <div className="input-group-prepend">
                     <span className="input-group-text">
@@ -265,20 +262,38 @@ class CreateProfile extends Component {
                     className="form-control form-control-lg"
                     placeholder="Facebook Page URL"
                     name="facebook"
+                    value={this.state.facebook}
+                    onChange={this.onChange}
                   />
                 </div>
-
                 <div className="input-group mb-3">
                   <div className="input-group-prepend">
                     <span className="input-group-text">
-                      <i className="fab fa-linkedin" />
+                      <i className="fab fa-instagram" />
                     </span>
                   </div>
                   <input
                     type="text"
                     className="form-control form-control-lg"
-                    placeholder="Linkedin Profile URL"
-                    name="linkedin"
+                    placeholder="Instagram Page URL"
+                    name="instagram"
+                    value={this.state.instagram}
+                    onChange={this.onChange}
+                  />
+                </div>
+                <div className="input-group mb-3">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">
+                      <i className="fab fa-twitter" />
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    className="form-control form-control-lg"
+                    placeholder="Twitter Profile URL"
+                    name="twitter"
+                    value={this.state.twitter}
+                    onChange={this.onChange}
                   />
                 </div>
 
@@ -293,22 +308,11 @@ class CreateProfile extends Component {
                     className="form-control form-control-lg"
                     placeholder="YouTube Channel URL"
                     name="youtube"
+                    value={this.state.youtube}
+                    onChange={this.onChange}
                   />
                 </div>
 
-                <div className="input-group mb-3">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text">
-                      <i className="fab fa-instagram" />
-                    </span>
-                  </div>
-                  <input
-                    type="text"
-                    className="form-control form-control-lg"
-                    placeholder="Instagram Page URL"
-                    name="instagram"
-                  />
-                </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>

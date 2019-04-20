@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import axios from "axios";
+import Header from "./Header";
 class EditProfile extends Component {
   constructor(props) {
     super(props);
     var token = props.match.params.token;
     this.state = {
       // loaded:false,
+      token: token,
       jwttoken: "Bearer " + token,
       username: "",
       user: { _id: "" },
@@ -14,9 +15,14 @@ class EditProfile extends Component {
       weight: "",
       gender: "",
       allergies: "",
-      conditions: "",
+      condition: "",
       foodType: "",
       bodyShape: "",
+      bio:"",
+      facebook:"",
+      twitter:"",
+      instagram:"",
+      date:"",
       idealPlate: {}
     };
     fetch("/api/profiles/myprofile", {
@@ -31,9 +37,8 @@ class EditProfile extends Component {
         return res.json();
       }).then(responseJson=>{
        let receivedState = responseJson;
-        console.log(receivedState);
-        this.setState = {
-          jwttoken: "Bearer " + receivedState.token,
+        this.setState({
+          jwttoken: "Bearer " + this.state.token,
           username: receivedState.username,
           user: { _id: receivedState._id },
           age: receivedState.age,
@@ -41,12 +46,13 @@ class EditProfile extends Component {
           weight: receivedState.weight,
           gender: receivedState.gender,
           allergies: receivedState.allergies,
-          conditions: receivedState.conditions,
+          condition: receivedState.condition,
           foodType: receivedState.foodType,
           bodyShape: receivedState.bodyShape,
           idealPlate: receivedState.idealPlate,
-        };
-        console.log(receivedState.idealPlate)
+          
+        })
+        console.log(this.state.jwttoken);
       })
       .catch(err => {
         console.log(err);
@@ -71,6 +77,7 @@ class EditProfile extends Component {
   onSubmit(e) {
     e.preventDefault();
     const newProfile = {
+
       username: this.state.username,
       user: { _id: this.state._id },
       age: Number(this.state.age),
@@ -78,7 +85,7 @@ class EditProfile extends Component {
       weight: Number(this.state.weight),
       gender: this.state.gender,
       allergies: this.state.allergies,
-      conditions: this.state.conditions,
+      condition: this.state.condition,
       foodType: this.state.foodType,
       bodyShape: this.state.bodyShape,
       idealPlate: this.state.idealPlate
@@ -98,35 +105,26 @@ class EditProfile extends Component {
       })
       .then(responseJson => {
         console.log(responseJson);
-        //if (responseJson.error !== undefined) {
-        //this.props.history.push("/createprofile/" + this.state.token);
-        // }
-        //this.setState({ jwttoken: this.state.jwttoken, ...newState });
+        if (responseJson.error === undefined) {
+        this.props.history.push("/dashboard/" + this.state.token);
+        }
+        this.setState({ jwttoken: this.state.jwttoken, ...newProfile });
       })
       .catch(err => {
         console.log(err);
       });
 
-    // axios
-    //   .post("/api/profiles/",{
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'Authorization': this.state.jwttoken
-    //     },
-    //     newProfile
-    // })
-    //   .then(res => console.log(res.data))
-    //   .catch(err => console.log(err.response.data));
   }
   render() {
     return (
       <div className="create-profile">
+      <Header isAuthenticated={(this.state.token!==undefined)?this.state.token:""}></Header>
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Create Your Profile</h1>
+              <h1 className="display-4 text-center">Edit Your Profile</h1>
               <p className="lead text-center">
-                Let's get some information to make your profile
+                You can edit your profile's info for updates
               </p>
               <small className="d-block pb-3">* = required field</small>
               <form onSubmit={this.onSubmit}>

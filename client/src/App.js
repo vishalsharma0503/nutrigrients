@@ -8,6 +8,7 @@ import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import EditProfile from "./components/EditProfile";
 import CreateProfile from "./components/CreateProfile";
+import CreatePost from "./components/CreatePost";
 import "./App.css";
 
 class App extends Component {
@@ -15,10 +16,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header />
+          {/* <Header /> */}
           <Route exact path="/" component={Landing} />
           <div className="c">
             <Route exact path="/register" component={Register} />
+            <Route exact path="/createpost" component={CreatePost} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/createprofile/:token" component={CreateProfile} />
             <Route exact path="/editprofile/:token" component={EditProfile} />

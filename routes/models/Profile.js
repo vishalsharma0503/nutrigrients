@@ -46,6 +46,26 @@ const ProfileSchema = new Schema({
   idealPlate:{
     type: Object,
     required:false
+  },
+  bio:{
+    type:String,
+    required:false
+  },
+  facebook:{
+    type:String,
+    required:false
+  },
+  instagram:{
+    type:String,
+    required:false
+  },
+  twitter:{
+    type:String,
+    required:false
+  },
+  date:{
+    type:Date,
+    default:Date.now
   }
 });
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Header from "./Header";
 import classnames from "classnames";
 class Login extends Component {
   constructor() {
@@ -34,6 +35,7 @@ class Login extends Component {
     const { errors } = this.state;
     return (
       <div className="login">
+      <Header isAuthenticated={(this.state.token!==undefined)?this.state.token:""}></Header>
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
