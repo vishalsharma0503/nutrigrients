@@ -12,9 +12,14 @@ class CreatePost extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-  onSubmit(e) {}
-
-  componentDidMount() {}
+  onSubmit(e) {
+    e.preventDefault();
+    const userPost = {
+      user: { _id: this.state._id },
+      post:this.state.post
+    }
+    console.log(userPost);
+  }
 
   render() {
     return (
@@ -60,7 +65,7 @@ class CreatePost extends Component {
                           class="form-control form-control-lg"
                           placeholder="Create a post"
                           name="post"
-                          value={this.state.bio}
+                          value={this.state.post}
                           onChange={this.onChange}
                         />
                       </div>

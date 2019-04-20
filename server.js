@@ -5,6 +5,7 @@ const db = require("./config/keys").mongoURI;
 const passport = require("passport");
 const users = require("./routes/api/users");
 const profiles = require("./routes/api/profiles");
+const posts = require("./routes/api/posts");
 
 
 const app = express();
@@ -30,4 +31,4 @@ app.get("/", () => {
 
 app.use("/api/users", users);
 app.use("/api/profiles", profiles);
-
+app.use("/api/posts", posts);
