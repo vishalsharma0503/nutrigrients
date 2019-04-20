@@ -10,6 +10,31 @@ const cors = require("cors");
 //   console.log("Profiles page works");
 // });
 
+// @route GET api/profiles/all
+// @desc Fetch all profiles
+// @access Private
+router.options("/all", cors());
+router.get(
+  "/all",
+  cors(),
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    errors = {};
+    Profile.find({})
+      .populate("users", ["name", "id"])
+      .exec((err, docs) => {
+        if (err) {
+          console.log(err);
+          errors.error = "Could not complete the request";
+          return res.status(500).json(errors);
+        }
+        console.log(docs);
+        //res.json(docs);
+        res.json({ result: "all profiles loaded" });
+      });
+  }
+);
+
 // @route GET api/profiles/myprofile
 // @desc Fetch current profile
 // @access Private

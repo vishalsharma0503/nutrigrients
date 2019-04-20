@@ -20,13 +20,12 @@ class Dashboard extends Component {
       conditions: "",
       foodType: "",
       bodyShape: "",
-      bio:"",
-      facebook:"",
-      twitter:"",
-      instagram:"",
-      date:"",
-      idealPlate: {},
-
+      bio: "",
+      facebook: "",
+      twitter: "",
+      instagram: "",
+      date: "",
+      idealPlate: {}
     };
     //console.log("TOKEN -> ", "Bearer " + token);
   }
@@ -49,7 +48,7 @@ class Dashboard extends Component {
           this.props.history.push("/createprofile/" + this.state.token);
         }
         this.setState({ jwttoken: this.state.jwttoken, ...newState });
-        console.log(responseJson.idealPlate)
+        console.log(responseJson.idealPlate);
         ChartUtil(responseJson.idealPlate);
       })
       .catch(err => {
@@ -59,11 +58,17 @@ class Dashboard extends Component {
   pushToEditPage = () => {
     this.props.history.push("/editprofile/" + this.state.token);
   };
+  pushToPostsPage = () => {
+    this.props.history.push("/createpost/" + this.state.token);
+  };
   render() {
     return (
-      
       <div className="wrapper">
-      <Header isAuthenticated={(this.state.token!==undefined)?this.state.token:""}></Header>
+        <Header
+          isAuthenticated={
+            this.state.token !== undefined ? this.state.token : ""
+          }
+        />
         <div className="pc_wrapper">
           <div className="pc_wrapper2">
             <div className="pc">
@@ -136,9 +141,12 @@ class Dashboard extends Component {
               <canvas id="pie-chart" width="600" height="450" />
             </div>
             <div className="chart_box_container">
-              <div className="edit_button" onClick={this.pushToEditPage}>
+              <span className="edit_button" onClick={this.pushToEditPage}>
                 EDIT PROFILE
-              </div>
+              </span>
+              <span className="edit_button" onClick={this.pushToPostsPage}>
+                MY POSTS
+              </span>
               <div className="share_group">
                 <div>Share Profile :</div>
                 <i className="fab fa-instagram" />

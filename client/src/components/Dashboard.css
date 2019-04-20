@@ -16,7 +16,7 @@
   display: grid;
   padding: auto;
   max-width: 250px;
-  margin: 0 auto 0 auto;
+  margin: 0 0 0 40px;
   background-color: rgb(241, 101, 101);
   grid-template-rows: auto auto;
   grid-gap: 0;
@@ -154,12 +154,11 @@
   max-width: 600px;
 }
 .chart_box_container {
-  top: 150px;
   position: relative;
   height: 255px;
   width: 270px;
   display: grid;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto auto;
   background-color: transparent;
   border-radius: 3px;
 }
