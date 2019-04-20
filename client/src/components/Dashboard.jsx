@@ -59,7 +59,7 @@ class Dashboard extends Component {
     this.props.history.push("/editprofile/" + this.state.token);
   };
   pushToPostsPage = () => {
-    this.props.history.push("/createpost/" + this.state.token);
+    this.props.history.push("/createpost/");
   };
   render() {
     return (
