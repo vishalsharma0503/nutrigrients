@@ -2,12 +2,18 @@ import React, { Component } from "react";
 import "./Dashboard.css";
 import ChartUtil from "./chartUtil";
 import Header from "./Header";
+import mealUtil from "./mealUtil";
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     var token = props.match.params.token;
     this.state = {
+      toggleComponent: false,
+      currentComponent: "",
+      styleChart: { top: "0px" },
+      styleMeal: { top: "600px" },
+      recommendedMeal: { protein: "", carbs: "", fats: "", fibres: "" },
       token: token,
       jwttoken: "Bearer " + token,
       username: "",
@@ -47,9 +53,17 @@ class Dashboard extends Component {
         if (responseJson.error !== undefined) {
           this.props.history.push("/createprofile/" + this.state.token);
         }
-        this.setState({ jwttoken: this.state.jwttoken, ...newState });
-        //console.log(responseJson.idealPlate);
+        // create chart
         ChartUtil(responseJson.idealPlate);
+        // create meal
+        var newMeal = {};
+        mealUtil(responseJson, newMeal);
+        this.setState({
+          jwttoken: this.state.jwttoken,
+          recommendedMeal: newMeal,
+          ...newState
+        });
+        //console.log(responseJson.idealPlate);
       })
       .catch(err => {
         console.log(err);
@@ -63,6 +77,21 @@ class Dashboard extends Component {
   };
   pushToFitHerdPage = () => {
     this.props.history.push("/thefitherd/" + this.state.token);
+  };
+  toggleComponent = () => {
+    if (this.state.toggleComponent === false) {
+      this.setState({
+        toggleComponent: true,
+        styleMeal: { top: "100px" },
+        styleChart: { top: "600px" }
+      });
+    } else {
+      this.setState({
+        toggleComponent: false,
+        styleMeal: { top: "600px" },
+        styleChart: { top: "0px" }
+      });
+    }
   };
   render() {
     return (
@@ -139,25 +168,42 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="sep_line" />
-            <div className="chart">
-              <h1>My Ideal Plate</h1>
-              <canvas id="pie-chart" width="600" height="450" />
+            <div className="middle_box" onClick={this.toggleComponent}>
+              <div className="chart" style={this.state.styleChart}>
+                <h1>My Ideal Plate</h1>
+                <canvas id="pie-chart" width="600" height="450" />
+                <div className="edit_button2" onClick={this.toggleComponent}>
+                  My MEAL
+                </div>
+              </div>
+              <div className="meal" style={this.state.styleMeal}>
+                <h1>My Ideal Meal</h1>
+                <div>{this.state.recommendedMeal.protein}</div>
+                <div>{this.state.recommendedMeal.carbs}</div>
+                <div>{this.state.recommendedMeal.fats}</div>
+                <div>{this.state.recommendedMeal.fibres}</div>
+                <div className="edit_button2" onClick={this.toggleComponent}>
+                  My PLATE
+                </div>
+              </div>
             </div>
             <div className="chart_box_container">
-              <span className="edit_button" onClick={this.pushToEditPage}>
-                EDIT PROFILE
-              </span>
-              <span className="edit_button" onClick={this.pushToPostsPage}>
-                MY POSTS
-              </span>
-              <span className="edit_button" onClick={this.pushToFitHerdPage}>
-                The FIT HERD
-              </span>
-              <div className="share_group">
-                <div>Share Profile :</div>
-                <i className="fab fa-instagram" />
-                <i className="fab fa-facebook" />
-                <i className="fab fa-twitter" />
+              <div className="buttonsAndSocial">
+                <div className="edit_button" onClick={this.pushToEditPage}>
+                  EDIT PROFILE
+                </div>
+                <div className="edit_button" onClick={this.pushToPostsPage}>
+                  MY POSTS
+                </div>
+                <div className="edit_button" onClick={this.pushToFitHerdPage}>
+                  The FIT HERD
+                </div>
+                <div className="share_group">
+                  <div>Share Profile :</div>
+                  <i className="fab fa-instagram" />
+                  <i className="fab fa-facebook" />
+                  <i className="fab fa-twitter" />
+                </div>
               </div>
               <div className="chart_box">
                 <div className="nutrients_details">
