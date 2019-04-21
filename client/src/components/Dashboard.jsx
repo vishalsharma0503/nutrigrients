@@ -27,7 +27,7 @@ class Dashboard extends Component {
       date: "",
       idealPlate: {}
     };
-    console.log("TOKEN -> ", "Bearer " + token);
+    //console.log("TOKEN -> ", "Bearer " + token);
   }
   componentDidMount() {
     var newState;
@@ -48,7 +48,7 @@ class Dashboard extends Component {
           this.props.history.push("/createprofile/" + this.state.token);
         }
         this.setState({ jwttoken: this.state.jwttoken, ...newState });
-        console.log(responseJson.idealPlate);
+        //console.log(responseJson.idealPlate);
         ChartUtil(responseJson.idealPlate);
       })
       .catch(err => {
@@ -60,6 +60,9 @@ class Dashboard extends Component {
   };
   pushToPostsPage = () => {
     this.props.history.push("/createpost");
+  };
+  pushToFitHerdPage = () => {
+    this.props.history.push("/thefitherd/" + this.state.token);
   };
   render() {
     return (
@@ -146,6 +149,9 @@ class Dashboard extends Component {
               </span>
               <span className="edit_button" onClick={this.pushToPostsPage}>
                 MY POSTS
+              </span>
+              <span className="edit_button" onClick={this.pushToFitHerdPage}>
+                The FIT HERD
               </span>
               <div className="share_group">
                 <div>Share Profile :</div>

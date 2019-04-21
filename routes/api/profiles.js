@@ -21,16 +21,15 @@ router.get(
   (req, res) => {
     errors = {};
     Profile.find({})
-      .populate("users", ["name", "id"])
+      .populate("users")
       .exec((err, docs) => {
         if (err) {
           console.log(err);
           errors.error = "Could not complete the request";
           return res.status(500).json(errors);
         }
-        console.log(docs);
-        //res.json(docs);
-        res.json({ result: "all profiles loaded" });
+        //console.log(docs);
+        res.json(docs);
       });
   }
 );

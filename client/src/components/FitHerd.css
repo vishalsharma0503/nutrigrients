@@ -1,0 +1,24 @@
+.cards_group_container {
+  background: #3a455a;
+}
+.cards_group {
+  max-width: 60%;
+  margin: 0 auto 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 30px;
+}
+.jumbotron {
+  color: white;
+  background: #566277;
+  text-align: center;
+  margin-bottom: 0;
+  font-weight: bolder;
+}
+.heading1 {
+  font-size: 300%;
+  font-weight: 800;
+  font-family: Helvetica, sans-serif;
+}
