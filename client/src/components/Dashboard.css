@@ -106,10 +106,46 @@
   margin: auto auto auto auto;
   border-radius: 3px;
 }
-
+.middle_box {
+  width: 600px;
+  max-width: 600px;
+  max-height: 520px;
+  overflow: hidden;
+  position: relative;
+}
 .chart {
+  position: absolute;
+  left: 20px;
   padding-top: 10px;
   max-width: 600px;
+}
+.meal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  width: 350px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 20px;
+  color: rgba(105, 105, 105, 0.9);
+  -moz-box-shadow: 0px 0px 3px 4px rgba(163, 163, 163, 0.83);
+  -webkit-box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
+  box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
+}
+.meal > h1 {
+  text-align: center;
+  font-family: Helvetica;
+  font-weight: 800;
+  background: linear-gradient(to right, rgb(65, 188, 209), rgb(111, 70, 145));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .chart > h1 {
   text-align: center;
@@ -163,6 +199,10 @@
   background-color: transparent;
   border-radius: 3px;
 }
+.buttonsAndSocial {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+}
 .edit_button {
   margin: 0 auto 8px auto;
   cursor: pointer;
@@ -183,6 +223,27 @@
   transform: translateX(-3px) translateY(-4px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
 }
+.edit_button2 {
+  width: 50%;
+  margin: 10px auto 4px auto;
+  cursor: pointer;
+  text-align: center;
+  border: 0px solid black;
+  color: white;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    rgba(16, 129, 182, 0.74),
+    rgba(4, 69, 99, 0.74)
+  );
+  border-radius: 40px;
+  padding: 10px 25px 10px 25px;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.edit_button2:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+}
+
 .share_group {
   font-weight: 700;
   display: grid;
@@ -228,7 +289,6 @@
     padding: 0;
   }
   .chart_box_container {
-    top: 130px;
     margin: 30px auto 0 0;
   }
   .spacebox {
@@ -279,15 +339,20 @@
     max-width: 530px;
   }
   .chart_box_container {
-    top: 0px;
-    margin: 50px auto 0 30px;
+    margin: 50px auto 0 60px;
+    grid-template-rows: auto auto auto auto;
+    height: 550px;
   }
+
   .nutrients-details {
     margin-bottom: 20px;
   }
   .pc {
     margin-left: auto;
     margin-right: 30px;
+  }
+  .edit_button {
+    height: auto;
   }
 }
 @media (max-width: 870px) {
@@ -324,5 +389,13 @@
   }
   .spacebox {
     height: 30px;
+  }
+}
+@media (max-width: 500px) {
+  body {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
   }
 }
