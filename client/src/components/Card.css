@@ -1,9 +1,12 @@
 .card_layer {
   background: transparent;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   text-align: center;
   position: relative;
   z-index: 5;
+  max-width: 250px;
 }
 .card_layer:hover {
   background: rgba(151, 160, 168, 0.2);
@@ -43,7 +46,7 @@
   grid-template-rows: auto auto;
   grid-gap: 0;
   text-align: center;
-  margin: 0 auto 0 auto;
+  margin: 0 0 0 0;
   /*
   -moz-box-shadow: 0px 0px 6px 2px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 6px 2px rgba(163, 163, 163, 0.83);
@@ -112,4 +115,10 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 1020px) {
+  .card_grid {
+    margin: 0 auto 0 auto;
+  }
 }

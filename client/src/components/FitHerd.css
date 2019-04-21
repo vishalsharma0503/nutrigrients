@@ -22,3 +22,82 @@
   font-weight: 800;
   font-family: Helvetica, sans-serif;
 }
+@media (max-width: 1320px) {
+  .cards_group {
+    max-width: 65%;
+    grid-gap: 20px;
+  }
+}
+@media (max-width: 1240px) {
+  .cards_group {
+    max-width: 70%;
+    grid-gap: 20px;
+  }
+}
+@media (max-width: 1180px) {
+  .cards_group {
+    max-width: 75%;
+    grid-gap: 20px;
+  }
+}
+@media (max-width: 1080px) {
+  .cards_group {
+    max-width: 80%;
+    grid-gap: 20px;
+  }
+}
+@media (max-width: 1020px) {
+  .cards_group {
+    max-width: 60%;
+    grid-template-columns: auto auto;
+  }
+}
+@media (max-width: 920px) {
+  .cards_group {
+    max-width: 65%;
+  }
+}
+@media (max-width: 830px) {
+  .cards_group {
+    max-width: 70%;
+  }
+}
+@media (max-width: 770px) {
+  .cards_group {
+    max-width: 75%;
+  }
+}
+@media (max-width: 700px) {
+  .cards_group {
+    max-width: 40%;
+    grid-template-columns: auto;
+  }
+}
+@media (max-width: 650px) {
+  .cards_group {
+    max-width: 45%;
+  }
+}
+@media (max-width: 575px) {
+  .heading1 {
+    font-size: 200%;
+  }
+  .cards_group {
+    max-width: 46%;
+  }
+}
+@media (max-width: 575px) {
+  .cards_group {
+    max-width: 50%;
+  }
+}
+@media (max-width: 515px) {
+  .cards_group {
+    max-width: 55%;
+  }
+}
+@media (max-width: 477px) {
+  .cards_group {
+    max-width: 60%;
+  }
+}
