@@ -11,7 +11,6 @@ router.post(
   cors(),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log(req.body);
     const { errors, isValid } = validatePostInput(req.body);
     if (!isValid) {
       return res.status(400).json(errors);

@@ -22,7 +22,7 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <div className="c">
             <Route exact path="/register" component={Register} />
-            <Route exact path="/createpost" component={CreatePost} />
+            <Route exact path="/createpost/:token" component={CreatePost} />
             <Route exact path="/login" component={Login} />
             <Route
               exact
