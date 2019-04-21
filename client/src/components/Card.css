@@ -1,0 +1,115 @@
+.card_layer {
+  background: transparent;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+.card_layer:hover {
+  background: rgba(151, 160, 168, 0.2);
+}
+.overlay_button {
+  z-index: 4;
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  display: none;
+  cursor: pointer;
+  text-align: center;
+  border: 0px solid black;
+  /*
+  color: rgb(87, 87, 87);
+  */
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  background: linear-gradient(to right, rgb(113, 250, 255), rgb(0, 255, 255));
+  border-radius: 40px;
+  padding: 10px 25px 10px 25px;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.card_layer:hover .overlay_button {
+  display: block;
+}
+.card_grid {
+  z-index: 2;
+  border-radius: 1px;
+  background: rgb(242, 247, 246);
+  width: 250px;
+  height: 280px;
+  max-width: 250px;
+  max-height: 280px;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 0;
+  text-align: center;
+  margin: 0 auto 0 auto;
+  /*
+  -moz-box-shadow: 0px 0px 6px 2px rgba(163, 163, 163, 0.83);
+  -webkit-box-shadow: 0px 0px 6px 2px rgba(163, 163, 163, 0.83);
+  box-shadow: 0px 0px 6px 2px rgba(163, 163, 163, 0.83);
+  */
+}
+.card_layer:hover .card_grid {
+  opacity: 0.2;
+}
+
+.card_section1 {
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 0;
+  /*
+  border-bottom: 1px solid rgba(156, 156, 156, 0.4);
+  */
+}
+.card_profile_pic_container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  width: 150px;
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
+  background: url("./img_avatar.png") no-repeat;
+  background-position: center;
+  align-content: center;
+  background-size: cover;
+}
+.card_profile_pic {
+  max-width: 100%;
+  max-height: 100%;
+}
+.card_profile_name {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: "Work Sans", sans-serif;
+  font-size: 30px;
+}
+.card_username {
+  font-weight: 500;
+  color: rgb(121, 116, 116);
+  font-family: "Lobster", cursive;
+  font-size: 25px;
+}
+.card_section2 {
+  text-align: center;
+  background: rgb(224, 231, 230);
+  margin-top: 0;
+  text-transform: uppercase;
+}
+.card_category {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  padding-top: 8px;
+  background: linear-gradient(
+    to right,
+    rgb(241, 21, 21, 0.7),
+    rgb(146, 12, 63)
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

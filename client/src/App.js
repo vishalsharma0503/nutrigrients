@@ -8,7 +8,9 @@ import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import EditProfile from "./components/EditProfile";
 import CreateProfile from "./components/CreateProfile";
-import CreatePost from "./components/CreatePost";
+import CreatePost from "./components/CreatePost.jsx";
+import FitHerd from "./components/FitHerd";
+
 import "./App.css";
 
 class App extends Component {
@@ -22,7 +24,12 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/createpost" component={CreatePost} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/createprofile/:token" component={CreateProfile} />
+            <Route
+              exact
+              path="/createprofile/:token"
+              component={CreateProfile}
+            />
+            <Route exact path="/thefitherd/:token" component={FitHerd} />
             <Route exact path="/editprofile/:token" component={EditProfile} />
             <Route path="/dashboard/:token" component={Dashboard} />
           </div>

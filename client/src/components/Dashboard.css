@@ -48,6 +48,17 @@
   height: 265px;
   width: 250px;
 }
+.profile_pic {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background: url("./img_avatar.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
 .profile_name {
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   margin-top: 10px;
@@ -87,17 +98,7 @@
 .c3 {
   text-align: left;
 }
-.profile_pic {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  background: url("./img_avatar.png") no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-}
+
 .sep_line {
   border-left: 6px solid rgba(195, 195, 195, 0.75);
   height: 200px;
@@ -155,10 +156,10 @@
 }
 .chart_box_container {
   position: relative;
-  height: 255px;
+  height: 270px;
   width: 270px;
   display: grid;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto;
   background-color: transparent;
   border-radius: 3px;
 }
@@ -180,7 +181,7 @@
 }
 .edit_button:hover {
   transform: translateX(-3px) translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
 }
 .share_group {
   font-weight: 700;
