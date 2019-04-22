@@ -13,6 +13,13 @@ class Dashboard extends Component {
       currentComponent: "",
       styleChart: { top: "0px" },
       styleMeal: { top: "600px" },
+      styleChartButton: {
+        top: "0px",
+        bottom: "0px",
+        left: "0px",
+        right: "0px",
+        margin: "auto"
+      },
       recommendedMeal: { protein: "", carbs: "", fats: "", fibres: "" },
       token: token,
       jwttoken: "Bearer " + token,
@@ -83,13 +90,21 @@ class Dashboard extends Component {
       this.setState({
         toggleComponent: true,
         styleMeal: { top: "100px" },
-        styleChart: { top: "600px" }
+        styleChart: { top: "600px" },
+        styleChartButton: { top: "700px" }
       });
     } else {
       this.setState({
         toggleComponent: false,
         styleMeal: { top: "600px" },
-        styleChart: { top: "0px" }
+        styleChart: { top: "0px" },
+        styleChartButton: {
+          top: "0px",
+          bottom: "0px",
+          left: "0px",
+          right: "0px",
+          margin: "auto"
+        }
       });
     }
   };
@@ -168,11 +183,15 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="sep_line" />
-            <div className="middle_box" onClick={this.toggleComponent}>
+            <div className="middle_box">
               <div className="chart" style={this.state.styleChart}>
                 <h1>My Ideal Plate</h1>
                 <canvas id="pie-chart" width="600" height="450" />
-                <div className="edit_button2" onClick={this.toggleComponent}>
+                <div
+                  className="chart_button"
+                  style={this.state.styleChartButton}
+                  onClick={this.toggleComponent}
+                >
                   My MEAL
                 </div>
               </div>

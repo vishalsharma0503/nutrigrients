@@ -243,6 +243,27 @@
 .edit_button2:hover {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.45);
 }
+.chart_button {
+  position: absolute;
+  max-height: 40px;
+  max-width: 140px;
+  width: 50%;
+  cursor: pointer;
+  text-align: center;
+  border: 0px solid black;
+  color: white;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    rgba(16, 129, 182, 0.74),
+    rgba(4, 69, 99, 0.74)
+  );
+  border-radius: 40px;
+  padding: 10px 25px 10px 25px;
+}
+.chart_button:hover {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.45);
+}
 
 .share_group {
   font-weight: 700;
