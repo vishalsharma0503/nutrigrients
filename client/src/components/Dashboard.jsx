@@ -91,7 +91,7 @@ class Dashboard extends Component {
         toggleComponent: true,
         styleMeal: { top: "100px" },
         styleChart: { top: "600px" },
-        styleChartButton: { top: "700px" }
+        styleChartButton: { top: "800px" }
       });
     } else {
       this.setState({
@@ -182,17 +182,18 @@ class Dashboard extends Component {
                 </table>
               </div>
             </div>
-            <div className="sep_line" />
             <div className="middle_box">
               <div className="chart" style={this.state.styleChart}>
                 <h1>My Ideal Plate</h1>
-                <canvas id="pie-chart" width="600" height="450" />
-                <div
-                  className="chart_button"
-                  style={this.state.styleChartButton}
-                  onClick={this.toggleComponent}
-                >
-                  My MEAL
+                <div style={{ position: "relative" }}>
+                  <canvas id="pie-chart" width="600" height="450" />
+                  <div
+                    className="chart_button"
+                    style={this.state.styleChartButton}
+                    onClick={this.toggleComponent}
+                  >
+                    <p>My MEAL</p>
+                  </div>
                 </div>
               </div>
               <div className="meal" style={this.state.styleMeal}>
@@ -259,7 +260,6 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-            <div className="spacebox" />
           </div>
         </div>
       </div>

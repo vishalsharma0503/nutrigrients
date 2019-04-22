@@ -1,5 +1,6 @@
 .pc_wrapper {
   margin: 0;
+  padding-bottom: 50px;
   z-index: -1;
   background-image: url("./wall3.jpg");
   background-size: cover;
@@ -8,8 +9,8 @@
 .pc_wrapper2 {
   display: grid;
   margin: 0;
-  margin-top: 50px;
-  grid-template-columns: auto 0.3fr auto auto;
+  margin-top: 30px;
+  grid-template-columns: auto auto auto;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .pc {
@@ -27,7 +28,7 @@
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .pc:hover {
-  transform: scale(1.1);
+  transform: scale(1.06);
   background-color: rgb(231, 74, 74);
   -moz-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
   -webkit-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
@@ -99,13 +100,6 @@
   text-align: left;
 }
 
-.sep_line {
-  border-left: 6px solid rgba(195, 195, 195, 0.75);
-  height: 200px;
-  max-width: 100px;
-  margin: auto auto auto auto;
-  border-radius: 3px;
-}
 .middle_box {
   width: 600px;
   max-width: 600px;
@@ -116,7 +110,7 @@
 .chart {
   position: absolute;
   left: 20px;
-  padding-top: 10px;
+  width: 600px;
   max-width: 600px;
 }
 .meal {
@@ -188,16 +182,16 @@
   -webkit-text-fill-color: transparent;
 }
 #pie-chart {
+  width: 600px;
   max-width: 600px;
 }
 .chart_box_container {
   position: relative;
-  height: 270px;
-  width: 270px;
+  width: 240px;
+  height: 250px;
   display: grid;
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-rows: auto auto;
   background-color: transparent;
-  border-radius: 3px;
 }
 .buttonsAndSocial {
   display: grid;
@@ -253,16 +247,12 @@
   border: 0px solid black;
   color: white;
   font-weight: 700;
-  background: linear-gradient(
-    to right,
-    rgba(16, 129, 182, 0.74),
-    rgba(4, 69, 99, 0.74)
-  );
-  border-radius: 40px;
+  background: linear-gradient(to right, rgb(29, 157, 216), rgb(6, 97, 139));
+  border-radius: 50px;
   padding: 10px 25px 10px 25px;
 }
 .chart_button:hover {
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
 }
 
 .share_group {
@@ -274,22 +264,22 @@
 }
 .chart_box {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   background-color: rgb(255, 255, 255);
   border: 0px outset #cccccc;
   opacity: 1;
   border-radius: 3px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  -moz-box-shadow: 0px 0px 3px 4px rgba(163, 163, 163, 0.83);
-  -webkit-box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
-  box-shadow: 0px 0px 6px 4px rgba(163, 163, 163, 0.83);
+  -moz-box-shadow: 0px 0px 12px 1px rgba(163, 163, 163, 0.83);
+  -webkit-box-shadow: 0px 0px 12px 1px rgba(163, 163, 163, 0.83);
+  box-shadow: 0px 0px 12px 1px rgba(163, 163, 163, 0.83);
 }
 .chart_box:hover {
-  transform: scale(1.1);
-  -moz-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
-  -webkit-box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
-  box-shadow: 0px 0px 8px 6px rgba(163, 163, 163, 0.83);
+  transform: scale(1.08);
+  -moz-box-shadow: 0px 0px 14px 1px rgba(163, 163, 163, 0.83);
+  -webkit-box-shadow: 0px 0px 14px 1px rgba(163, 163, 163, 0.83);
+  box-shadow: 0px 0px 14px 1px rgba(163, 163, 163, 0.83);
 }
 
 .spacebox {
@@ -302,71 +292,67 @@
   }
   .pc {
     width: 250px;
-    margin: 0 auto 0 auto;
-  }
-  .sep_line {
-    height: 0;
-    margin: 0;
-    padding: 0;
-  }
-  .chart_box_container {
-    margin: 30px auto 0 0;
-  }
-  .spacebox {
-    height: 30px;
   }
 }
+
 @media (max-width: 1280px) {
-  .pc_wrapper2 {
-    grid-column-gap: 0px;
-  }
-  .chart {
-    max-width: 550px;
-  }
-  #pie-chart {
-    max-width: 550px;
-  }
-  .pc {
-    margin-right: 0;
-  }
   .pc:hover {
     transform: scale(1.04);
   }
-  .chart_box {
-    padding-top: 10px;
-  }
-  .chart_box_container {
-    height: 250px;
-    width: 240px;
+  .chart_box:hover {
+    transform: scale(1.05);
   }
 }
-@media (max-width: 1130px) {
+@media (max-width: 1220px) {
+  .pc {
+    margin: 0 auto 0 20px;
+  }
+}
+@media (max-width: 1150px) {
+  .chart,
+  #pie-chart,
+  .middle_box {
+    width: 550px;
+    max-width: 550px;
+  }
+}
+@media (max-width: 1100px) {
   .chart {
-    max-width: 500px;
+    left: 0px;
   }
-  #pie-chart {
-    max-width: 500px;
+  .chart,
+  #pie-chart,
+  .middle_box {
+    width: 540px;
+    max-width: 540px;
   }
 }
-@media (max-width: 1020px) {
+@media (max-width: 1100px) {
+  .chart,
+  #pie-chart,
+  .middle_box {
+    width: 510px;
+    max-width: 510px;
+  }
+}
+@media (max-width: 1045px) {
   .pc_wrapper2 {
-    grid-template-columns: auto 0.1fr auto;
+    grid-template-columns: auto auto;
     grid-column-gap: 0;
   }
-  .chart {
-    max-width: 530px;
-  }
-  #pie-chart {
+  .chart,
+  #pie-chart,
+  .middle_box {
+    width: 530px;
     max-width: 530px;
   }
   .chart_box_container {
-    margin: 50px auto 0 60px;
+    margin: 50px 40px 0 auto;
     grid-template-rows: auto auto auto auto;
     height: 550px;
   }
-
-  .nutrients-details {
-    margin-bottom: 20px;
+  .chart_box {
+    padding-bottom: 0;
   }
   .pc {
     margin-left: auto;
@@ -377,39 +363,43 @@
   }
 }
 @media (max-width: 870px) {
-  .pc {
+  .pc,
+  .chart_box_container {
     margin-left: 20px;
     margin-right: 0px;
   }
 }
 @media (max-width: 810px) {
   .pc_wrapper2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
     grid-row-gap: 30px;
   }
   .pc {
     margin-left: auto;
     margin-right: auto;
   }
-  .sep_line {
-    height: 0px;
-  }
-  .chart {
-    margin: auto;
+
+  .chart,
+  #pie-chart,
+  .middle_box {
+    width: 430px;
     max-width: 430px;
   }
-  #pie-chart {
-    max-width: 430px;
-    max-height: 340px;
+  .middle_box {
+    height: 380px;
+    margin: 10px auto;
+  }
+  .chart_button {
+    max-height: 70px;
+    top: 40px;
+    width: 20%;
+    border-radius: 60%;
   }
   .chart_box_container {
     top: 0px;
-    margin: 50px auto 0 auto;
-    height: 255px;
+    margin: 0px auto 0 auto;
+    height: 550px;
     width: 260px;
-  }
-  .spacebox {
-    height: 30px;
   }
 }
 @media (max-width: 500px) {
