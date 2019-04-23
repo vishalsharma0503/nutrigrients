@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from "./Card";
+import Header from "./Header";
 import "./FitHerd.css";
 // const jumbotron_style = {
 //   "text-align": "center"

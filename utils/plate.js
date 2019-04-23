@@ -26,7 +26,7 @@ module.exports = function plate(data,profileFields) {
     profileFields.idealPlate.fat = 10;
     profileFields.idealPlate.fibre = 25;
   } else if (BMI > 39) {
-    profileFields.idealPlate.category = "Extremely Obeses";
+    profileFields.idealPlate.category = "Extremely Obese";
     profileFields.idealPlate.carbs = 10;
     profileFields.idealPlate.pro = 60;
     profileFields.idealPlate.fat = 5;

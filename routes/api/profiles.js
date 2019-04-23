@@ -108,6 +108,10 @@ router.post(
     if (req.body.conditions) profileFields.conditions = req.body.conditions;
     if (req.body.foodType) profileFields.foodType = req.body.foodType;
     if (req.body.bodyShape) profileFields.bodyShape = req.body.bodyShape;
+    if (req.body.facebook) profileFields.facebook = req.body.facebook;
+    if (req.body.instagram) profileFields.instagram = req.body.instagram;
+    if (req.body.twitter) profileFields.twitter = req.body.twitter;
+    if (req.body.youtube) profileFields.youtube = req.body.youtube;
 
 
     Profile.findOne({ user: req.user.id }).then(profile => {
