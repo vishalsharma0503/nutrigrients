@@ -184,7 +184,7 @@ class Dashboard extends Component {
             </div>
             <div className="middle_box">
               <div className="chart" style={this.state.styleChart}>
-                <h1>My Ideal Plate</h1>
+                <h1>MY Ideal Plate</h1>
                 <div style={{ position: "relative" }}>
                   <canvas id="pie-chart" width="600" height="450" />
                   <div
@@ -192,7 +192,7 @@ class Dashboard extends Component {
                     style={this.state.styleChartButton}
                     onClick={this.toggleComponent}
                   >
-                    <p>My MEAL</p>
+                    <p>MY MEAL</p>
                   </div>
                 </div>
               </div>
@@ -203,7 +203,7 @@ class Dashboard extends Component {
                 <div>{this.state.recommendedMeal.fats}</div>
                 <div>{this.state.recommendedMeal.fibres}</div>
                 <div className="edit_button2" onClick={this.toggleComponent}>
-                  My PLATE
+                  MY PLATE
                 </div>
               </div>
             </div>
