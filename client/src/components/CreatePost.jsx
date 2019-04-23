@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PostCard from "./PostCard";
+import Header from "./Header";
 class CreatePost extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,7 @@ class CreatePost extends Component {
         return res.json();
       })
       .then(receivedPosts => {
-        console.log(receivedPosts);
+        //console.log(receivedPosts);
         var posts = [];
         this.pushPosts(posts, receivedPosts, receivedPosts.length);
         this.setState({
@@ -56,7 +57,7 @@ class CreatePost extends Component {
       // user: { _id: this.state._id },
       post: this.state.post
     };
-    console.log(userPost);
+    //console.log(userPost);
 
     fetch("http://localhost:5000/api/posts/", {
       crossDomain: true,
@@ -71,9 +72,9 @@ class CreatePost extends Component {
         return res.json();
       })
       .then(resJson => {
-        console.log(resJson);
+       // console.log(resJson);
         if (resJson.error === undefined) {
-          console.log("Jai Mata di");
+          //console.log("Jai Mata di");
           // this.props.history.push("/allposts")
         } else {
           console.log(resJson.error);
@@ -89,6 +90,11 @@ class CreatePost extends Component {
   render() {
     return (
       <div className="post">
+      <Header
+          isAuthenticated={
+            this.state.token !== undefined ? this.state.token : ""
+          }
+        />
         <div className="container">
           <div className="row">
             <div className="col-md-12">

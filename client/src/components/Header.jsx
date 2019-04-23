@@ -20,22 +20,22 @@ class Header extends Component {
             <Link className="navbar-brand" to="/">
               NutriGrients
             </Link>
-            <button
+            {/* <button
               className="navbar-toggler"
               type="button"
               data-toggle="collapse"
               data-target="#mobile-nav"
             >
               <span className="navbar-toggler-icon" />
-            </button>
+            </button> */}
             <div className="collapse navbar-collapse" id="mobile-nav">
               <ul className="navbar-nav mr-auto">
-                <li className="nav-item">
-                  <a className="nav-link" href="profiles.html">
+                {/* <li className="nav-item">
+                  <Link className="nav-link" to="profiles.html">
                     {" "}
                     The FIT Herd
-                  </a>
-                </li>
+                  </Link>
+                </li> */}
               </ul>
 
               <ul className="navbar-nav ml-auto">

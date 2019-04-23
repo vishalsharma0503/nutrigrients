@@ -5,8 +5,6 @@ const UserPost = require("../models/UserPost");
 const validatePostInput = require("../validation/post");
 const cors = require("cors");
 
-
-
 //Route POST Create/Edit posts
 router.options("/", cors());
 router.post(
@@ -27,8 +25,7 @@ router.post(
   }
 );
 
-
-//ROUTE GET get myposts posts
+//ROUTE GET get myposts
 router.options("/myposts", cors());
 router.get(
   "/myposts",
@@ -37,14 +34,15 @@ router.get(
   (req, res) => {
     errors = {};
     UserPost.find({ user: req.user.id })
-      .populate("user", ["post"])
       .then(posts => {
+        console.log(posts);
         if (posts) {
           return res.json(posts);
         } else {
           errors.error = "No profile Found";
           return res.status(404).json(errors);
         }
+        console.log(posts);
       })
       .catch(err => {
         res.status(404).json(err);
