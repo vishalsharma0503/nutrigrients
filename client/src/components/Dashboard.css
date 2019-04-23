@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 .pc_wrapper {
   margin: 0;
   padding-bottom: 50px;
@@ -67,7 +68,7 @@
   text-transform: uppercase;
   color: white;
   font-weight: 800;
-  font-family: Helvetica;
+  font-family: "Nunito";
 }
 .pcBox2 {
   z-index: 2;
@@ -86,7 +87,7 @@
   margin-left: auto;
   margin-right: auto;
   border: 0 solid black;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Nunito", Arial, sans-serif;
   font-weight: 700;
   color: rgba(105, 105, 105, 0.9);
 }
@@ -134,8 +135,8 @@
 }
 .meal > h1 {
   text-align: center;
-  font-family: Helvetica;
-  font-weight: 800;
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
   background: linear-gradient(to right, rgb(65, 188, 209), rgb(111, 70, 145));
   -webkit-background-clip: text;
   background-clip: text;
@@ -143,8 +144,8 @@
 }
 .chart > h1 {
   text-align: center;
-  font-family: Helvetica;
-  font-weight: 800;
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
   background: linear-gradient(to right, rgb(132, 232, 250), rgb(111, 70, 145));
   -webkit-background-clip: text;
   background-clip: text;
@@ -171,6 +172,7 @@
   font-size: 30px;
   border: none;
   color: transparent;
+  font-family: "Nunito", sans-serif;
   font-weight: 900;
   background: linear-gradient(
     to right,
