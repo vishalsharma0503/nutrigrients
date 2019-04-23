@@ -39,15 +39,31 @@ router.get(
         if (posts) {
           return res.json(posts);
         } else {
-          errors.error = "No profile Found";
+          errors.error = "No posts Found";
           return res.status(404).json(errors);
         }
-        console.log(posts);
       })
       .catch(err => {
         res.status(404).json(err);
       });
   }
 );
+
+// @Route GET api/posts/username
+router.get("/:username", (req, res) => {
+  //console.log(req.params.username);
+  UserPost.find({ username: req.params.username })
+    .then(posts => {
+      var errors = {};
+      console.log(posts);
+      if (posts) {
+        return res.json(posts);
+      } else {
+        errors = { error: "No Posts Found" };
+        return res.status(404).json(errors);
+      }
+    })
+    .catch(err => console.log(err));
+});
 
 module.exports = router;
