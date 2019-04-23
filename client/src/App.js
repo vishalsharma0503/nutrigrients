@@ -33,7 +33,11 @@ class App extends Component {
             <Route exact path="/thefitherd/:token" component={FitHerd} />
             <Route exact path="/editprofile/:token" component={EditProfile} />
             <Route exact path="/dashboard/:token" component={Dashboard} />
-            <Route exact path="/viewposts/:username" component={ViewPosts} />
+            <Route
+              exact
+              path="/viewposts/:username/:token"
+              component={ViewPosts}
+            />
           </div>
           <Footer />
         </div>

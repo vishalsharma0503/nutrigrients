@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
+import BackButton from "./BackButton";
 class EditProfile extends Component {
   constructor(props) {
     super(props);
@@ -18,11 +19,11 @@ class EditProfile extends Component {
       condition: "",
       foodType: "",
       bodyShape: "",
-      bio:"",
-      facebook:"",
-      twitter:"",
-      instagram:"",
-      date:"",
+      bio: "",
+      facebook: "",
+      twitter: "",
+      instagram: "",
+      date: "",
       idealPlate: {}
     };
     fetch("/api/profiles/myprofile", {
@@ -35,8 +36,9 @@ class EditProfile extends Component {
     })
       .then(res => {
         return res.json();
-      }).then(responseJson=>{
-       let receivedState = responseJson;
+      })
+      .then(responseJson => {
+        let receivedState = responseJson;
         this.setState({
           jwttoken: "Bearer " + this.state.token,
           username: receivedState.username,
@@ -49,9 +51,8 @@ class EditProfile extends Component {
           condition: receivedState.condition,
           foodType: receivedState.foodType,
           bodyShape: receivedState.bodyShape,
-          idealPlate: receivedState.idealPlate,
-          
-        })
+          idealPlate: receivedState.idealPlate
+        });
         console.log(this.state.jwttoken);
       })
       .catch(err => {
@@ -60,9 +61,7 @@ class EditProfile extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
   onChange(e) {
     if (
       e.target.name === "age" ||
@@ -77,7 +76,6 @@ class EditProfile extends Component {
   onSubmit(e) {
     e.preventDefault();
     const newProfile = {
-
       username: this.state.username,
       user: { _id: this.state._id },
       age: Number(this.state.age),
@@ -106,19 +104,26 @@ class EditProfile extends Component {
       .then(responseJson => {
         console.log(responseJson);
         if (responseJson.error === undefined) {
-        this.props.history.push("/dashboard/" + this.state.token);
+          this.props.history.push("/dashboard/" + this.state.token);
         }
         this.setState({ jwttoken: this.state.jwttoken, ...newProfile });
       })
       .catch(err => {
         console.log(err);
       });
-
   }
   render() {
     return (
       <div className="create-profile">
-      <Header isAuthenticated={(this.state.token!==undefined)?this.state.token:""}></Header>
+        <Header
+          isAuthenticated={
+            this.state.token !== undefined ? this.state.token : ""
+          }
+        />
+        <BackButton
+          history={this.props.history}
+          token={this.props.match.params.token}
+        />
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">

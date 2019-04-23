@@ -42,6 +42,7 @@ class FitHerd extends Component {
           history={this.props.history}
           profile_username={responseJson[i].username}
           category={responseJson[i].idealPlate.category}
+          token={this.props.match.params.token}
         />
       );
     }
@@ -52,7 +53,10 @@ class FitHerd extends Component {
       <div>
         <div className="jumbotron jumbotron-fluid">
           <div className="c">
-            <BackButton />
+            <BackButton
+              history={this.props.history}
+              token={this.props.match.params.token}
+            />
             <span className="heading1">THE FIT HERD</span>
             <div className="sub-heading1">
               <p>This is the sub heading.</p>

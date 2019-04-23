@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import PostCard from "./PostCard";
+import BackButton from "./BackButton";
 
 class ViewPost extends Component {
   constructor(props) {
@@ -34,6 +35,10 @@ class ViewPost extends Component {
     return (
       <div>
         <Header isAuthenticated={"I fooled my Header"} />
+        <BackButton
+          history={this.props.history}
+          token={this.props.match.params.token}
+        />
         <div className="container">
           <div className="row">
             <div className="col-md-12">{this.state.posts}</div>

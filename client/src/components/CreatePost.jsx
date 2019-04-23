@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PostCard from "./PostCard";
 import Header from "./Header";
+import BackButton from "./BackButton";
 class CreatePost extends Component {
   constructor(props) {
     super(props);
@@ -72,7 +73,7 @@ class CreatePost extends Component {
         return res.json();
       })
       .then(resJson => {
-       // console.log(resJson);
+        // console.log(resJson);
         if (resJson.error === undefined) {
           //console.log("Jai Mata di");
           // this.props.history.push("/allposts")
@@ -84,16 +85,20 @@ class CreatePost extends Component {
         console.log(err);
       });
 
-      window.location.reload();
+    window.location.reload();
   }
 
   render() {
     return (
       <div className="post">
-      <Header
+        <Header
           isAuthenticated={
             this.state.token !== undefined ? this.state.token : ""
           }
+        />
+        <BackButton
+          history={this.props.history}
+          token={this.props.match.params.token}
         />
         <div className="container">
           <div className="row">
