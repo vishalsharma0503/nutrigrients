@@ -10,6 +10,7 @@ import EditProfile from "./components/EditProfile";
 import CreateProfile from "./components/CreateProfile";
 import CreatePost from "./components/CreatePost.jsx";
 import FitHerd from "./components/FitHerd";
+import ViewPosts from "./components/ViewPosts";
 
 import "./App.css";
 
@@ -31,7 +32,8 @@ class App extends Component {
             />
             <Route exact path="/thefitherd/:token" component={FitHerd} />
             <Route exact path="/editprofile/:token" component={EditProfile} />
-            <Route path="/dashboard/:token" component={Dashboard} />
+            <Route exact path="/dashboard/:token" component={Dashboard} />
+            <Route exact path="/viewposts/:username" component={ViewPosts} />
           </div>
           <Footer />
         </div>

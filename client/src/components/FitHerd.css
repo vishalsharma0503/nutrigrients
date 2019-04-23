@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 .cards_group_container {
-  background: #3a455a;
+  background: rgb(58, 69, 90);
 }
 .cards_group {
   max-width: 60%;
@@ -12,15 +14,22 @@
 }
 .jumbotron {
   color: white;
-  background: #566277;
+  background: #5f6c81;
   text-align: center;
   margin-bottom: 0;
   font-weight: bolder;
 }
+
 .heading1 {
-  font-size: 300%;
+  font-size: 350%;
   font-weight: 800;
   font-family: Helvetica, sans-serif;
+}
+.sub-heading1 {
+  font-weight: 400;
+  color: rgb(37, 46, 63);
+  font-size: 130%;
+  font-family: "Fjalla One", sans-serif;
 }
 @media (max-width: 1320px) {
   .cards_group {

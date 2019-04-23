@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700,900");
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 .pc_wrapper {
   margin: 0;
@@ -63,12 +64,13 @@
 }
 .profile_name {
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  margin-top: 10px;
+  margin-top: 6px;
   text-align: center;
   text-transform: uppercase;
   color: white;
-  font-weight: 800;
-  font-family: "Nunito";
+  font-weight: 900;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
 }
 .pcBox2 {
   z-index: 2;
@@ -241,6 +243,7 @@
 }
 .chart_button {
   position: absolute;
+  font-family: "Nunito", sans-serif;
   max-height: 40px;
   max-width: 140px;
   width: 50%;

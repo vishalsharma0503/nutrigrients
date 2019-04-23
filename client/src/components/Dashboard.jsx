@@ -184,7 +184,7 @@ class Dashboard extends Component {
             </div>
             <div className="middle_box">
               <div className="chart" style={this.state.styleChart}>
-                <h1>MY Ideal Plate</h1>
+                <h1>My Ideal Plate</h1>
                 <div style={{ position: "relative" }}>
                   <canvas id="pie-chart" width="600" height="450" />
                   <div

@@ -3,10 +3,17 @@ import "./Card.css";
 
 class Card extends Component {
   state = {};
+  pushToViewPosts = () => {
+    this.props.history.push("/viewposts/" + this.props.profile_username);
+  };
   render() {
     return (
       <span className="card_layer">
-        <div className="overlay_button">Click</div>
+        <div className="overlay_button" onClick={this.pushToViewPosts}>
+          View
+          <br />
+          Stories
+        </div>
         <span className="card_grid">
           <span className="card_section1">
             <div className="card_profile_pic_container">

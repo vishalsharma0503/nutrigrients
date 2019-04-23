@@ -7,32 +7,47 @@
   position: relative;
   z-index: 5;
   max-width: 250px;
+  border-radius: 3px;
 }
 .card_layer:hover {
-  background: rgba(151, 160, 168, 0.2);
+  background: linear-gradient(
+    to right,
+    rgba(239, 240, 241, 0.521),
+    rgba(151, 160, 168, 0.4)
+  );
 }
 .overlay_button {
   z-index: 4;
   position: absolute;
-  top: 100px;
-  left: 30px;
+  /* top: 100px;
+  left: 30px; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
   display: none;
   cursor: pointer;
   text-align: center;
   border: 0px solid black;
   /*
   color: rgb(87, 87, 87);
+  color: rgb(70, 70, 70); // GRAY
   */
-  color: white;
+  color: rgb(92, 87, 87);
   font-weight: 700;
   font-size: 20px;
-  background: linear-gradient(to right, rgb(113, 250, 255), rgb(0, 255, 255));
-  border-radius: 40px;
+  background: linear-gradient(to right, rgb(118, 255, 255), rgb(4, 233, 202));
+  border-radius: 4px;
+  line-height: 1.1;
   padding: 10px 25px 10px 25px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .card_layer:hover .overlay_button {
   display: block;
+  transform: 1s ease;
 }
 .card_grid {
   z-index: 2;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "./Card";
 import Header from "./Header";
+import BackButton from "./BackButton";
 import "./FitHerd.css";
 // const jumbotron_style = {
 //   "text-align": "center"
@@ -38,6 +39,7 @@ class FitHerd extends Component {
     for (var i = 0; i < count; i++) {
       cards.push(
         <Card
+          history={this.props.history}
           profile_username={responseJson[i].username}
           category={responseJson[i].idealPlate.category}
         />
@@ -49,8 +51,12 @@ class FitHerd extends Component {
     return (
       <div>
         <div className="jumbotron jumbotron-fluid">
-          <div className="container-fluid">
+          <div className="c">
+            <BackButton />
             <span className="heading1">THE FIT HERD</span>
+            <div className="sub-heading1">
+              <p>This is the sub heading.</p>
+            </div>
           </div>
         </div>
         <div className="cards_group_container">

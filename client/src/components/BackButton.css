@@ -1,0 +1,17 @@
+.back_button {
+  cursor: pointer;
+  position: absolute;
+  background: url("./less_than_icon.png");
+  background-size: cover;
+  left: 10px;
+  top: 10px;
+  font-size: 40px;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  padding: auto;
+  border-radius: 50%;
+  align-content: center;
+  vertical-align: center;
+  color: rgb(0, 74, 109);
+}

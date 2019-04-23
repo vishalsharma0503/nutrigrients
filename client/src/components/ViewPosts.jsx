@@ -1,0 +1,47 @@
+import React, { Component } from "react";
+import Header from "./Header";
+import PostCard from "./PostCard";
+
+class ViewPost extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: props.match.params.username,
+      posts: []
+    };
+  }
+  pushIntoPosts = (posts, responseJson, count) => {
+    for (var i = 0; i < count; i++) {
+      posts.push(
+        <PostCard username={this.state.username} post={responseJson[i].post} />
+      );
+    }
+  };
+  componentDidMount() {
+    fetch("http://localhost:5000/api/posts/" + this.state.username)
+      .then(res => {
+        return res.json();
+      })
+      .then(responseJson => {
+        console.log("View Posts:\n", responseJson);
+        var posts = [];
+        this.pushIntoPosts(posts, responseJson, responseJson.length);
+        this.setState({ posts: posts });
+      })
+      .catch(err => console.log(err));
+  }
+  render() {
+    return (
+      <div>
+        <Header isAuthenticated={"I fooled my Header"} />
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">{this.state.posts}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default ViewPost;
