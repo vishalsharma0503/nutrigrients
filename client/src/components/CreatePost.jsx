@@ -1,16 +1,52 @@
 import React, { Component } from "react";
-
+import PostCard from "./PostCard";
+import Header from "./Header";
 class CreatePost extends Component {
   constructor(props) {
     super(props);
     var token = props.match.params.token;
     this.state = {
+      username: "",
       token: "Bearer " + token,
       post: ""
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+  componentDidMount() {
+    fetch("http://localhost:5000/api/posts/myposts", {
+      crossDomain: true,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: this.state.token
+      }
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(receivedPosts => {
+        //console.log(receivedPosts);
+        var posts = [];
+        this.pushPosts(posts, receivedPosts, receivedPosts.length);
+        this.setState({
+          username: receivedPosts.username,
+          posts: posts,
+          post: receivedPosts.post
+        });
+      });
+  }
+
+  pushPosts = (posts, receivedPosts, count) => {
+    for (var i = 0; i < count; i++) {
+      posts.push(
+        <PostCard
+          username={receivedPosts[i].username}
+          post={receivedPosts[i].post}
+        />
+      );
+    }
+  };
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -21,7 +57,7 @@ class CreatePost extends Component {
       // user: { _id: this.state._id },
       post: this.state.post
     };
-    console.log(userPost);
+    //console.log(userPost);
 
     fetch("http://localhost:5000/api/posts/", {
       crossDomain: true,
@@ -36,10 +72,10 @@ class CreatePost extends Component {
         return res.json();
       })
       .then(resJson => {
-        console.log(resJson);
+       // console.log(resJson);
         if (resJson.error === undefined) {
-          console.log("Jai Mata di");
-          this.props.history.push("/allposts")
+          //console.log("Jai Mata di");
+          // this.props.history.push("/allposts")
         } else {
           console.log(resJson.error);
         }
@@ -47,39 +83,23 @@ class CreatePost extends Component {
       .catch(err => {
         console.log(err);
       });
+
+      window.location.reload();
   }
 
   render() {
     return (
       <div className="post">
+      <Header
+          isAuthenticated={
+            this.state.token !== undefined ? this.state.token : ""
+          }
+        />
         <div className="container">
           <div className="row">
             <div className="col-md-12">
               {/* post-item */}
-              {/* <div className="card card-body mb-3">
-                <div className="row">
-                  <div className="col-md-2">
-                    <a href="profile.html">
-                      <img
-                        className="rounded-circle d-none d-md-block"
-                        src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
-                        alt=""
-                      />
-                    </a>
-                    <br />
-                    <p className="text-center">John Doe</p>
-                  </div>
-                  <div className="col-md-10">
-                    <p className="lead">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Sint possimus corporis sunt necessitatibus! Minus nesciunt
-                      soluta suscipit nobis. Amet accusamus distinctio
-                      cupiditate blanditiis dolor? Illo perferendis eveniet cum
-                      cupiditate aliquam?
-                    </p>
-                  </div>
-                </div>
-              </div> */}
+              {this.state.posts}
 
               <div className="post-form mb-3">
                 <div className="card card-info">

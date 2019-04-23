@@ -109,10 +109,6 @@ router.post(
     if (req.body.foodType) profileFields.foodType = req.body.foodType;
     if (req.body.bodyShape) profileFields.bodyShape = req.body.bodyShape;
 
-    // Skills - Spilt into array
-    // if (typeof req.body.skills !== 'undefined') {
-    //     profileFields.skills = req.body.skills.split(',');
-    // }
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
