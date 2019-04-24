@@ -35,7 +35,7 @@ class App extends Component {
             <Route exact path="/dashboard/:token" component={Dashboard} />
             <Route
               exact
-              path="/viewposts/:username/:token"
+              path="/viewposts/:id/:token"
               component={ViewPosts}
             />
           </div>

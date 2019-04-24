@@ -16,7 +16,7 @@ router.post(
     if (!isValid) {
       return res.status(400).json(errors);
     }
-
+    console.log(req.body);
     const postFields = {};
     postFields.user = req.user.id;
     postFields.username = req.user.name;
@@ -50,9 +50,9 @@ router.get(
 );
 
 // @Route GET api/posts/username
-router.get("/:username", (req, res) => {
+router.get("/:id", (req, res) => {
   //console.log(req.params.username);
-  UserPost.find({ username: req.params.username })
+  UserPost.find({ user: req.params.id })
     .then(posts => {
       var errors = {};
       console.log(posts);

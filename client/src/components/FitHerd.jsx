@@ -40,6 +40,7 @@ class FitHerd extends Component {
       cards.push(
         <Card
           history={this.props.history}
+          userid={responseJson[i].user}
           profile_username={responseJson[i].username}
           category={responseJson[i].idealPlate.category}
           token={this.props.match.params.token}

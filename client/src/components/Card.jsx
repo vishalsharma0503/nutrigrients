@@ -5,7 +5,7 @@ class Card extends Component {
   state = {};
   pushToViewPosts = () => {
     this.props.history.push(
-      "/viewposts/" + this.props.profile_username + "/" + this.props.token
+      "/viewposts/" + this.props.userid + "/" + this.props.token
     );
   };
   render() {
