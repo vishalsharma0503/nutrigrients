@@ -7,19 +7,19 @@ class ViewPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: props.match.params.username,
+      userid: props.match.params.id,
       posts: []
     };
   }
   pushIntoPosts = (posts, responseJson, count) => {
     for (var i = 0; i < count; i++) {
       posts.push(
-        <PostCard username={this.state.username} post={responseJson[i].post} />
+        <PostCard username={responseJson[i].username} post={responseJson[i].post} />
       );
     }
   };
   componentDidMount() {
-    fetch("http://localhost:5000/api/posts/" + this.state.username)
+    fetch("/api/posts/" + this.state.userid)
       .then(res => {
         return res.json();
       })
@@ -29,7 +29,9 @@ class ViewPost extends Component {
         this.pushIntoPosts(posts, responseJson, responseJson.length);
         this.setState({ posts: posts });
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log("KUCH BHI DEDE"+err)
+      });
   }
   render() {
     return (

@@ -44,7 +44,7 @@ class Dashboard extends Component {
   }
   componentDidMount() {
     var newState;
-    fetch("http://localhost:5000/api/profiles/myprofile", {
+    fetch("/api/profiles/myprofile", {
       crossDomain: true,
       method: "GET",
       headers: {
