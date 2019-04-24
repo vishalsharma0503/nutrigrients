@@ -197,7 +197,7 @@ class Dashboard extends Component {
                 </div>
               </div>
               <div className="meal" style={this.state.styleMeal}>
-                <h1>My Ideal Meal</h1>
+                <div className="meal-heading">My Ideal Meal</div>
                 <div>{this.state.recommendedMeal.protein}</div>
                 <div>{this.state.recommendedMeal.carbs}</div>
                 <div>{this.state.recommendedMeal.fats}</div>

@@ -74,7 +74,7 @@ class CreateProfile extends Component {
       .then(responseJson => {
         console.log(responseJson);
         if (responseJson.error === undefined) {
-          console.log("Jai mahesmati");
+          //console.log("Jai mahesmati");
           this.props.history.push("/dashboard/" + this.state.token);
         } else {
           console.log(responseJson.error);
