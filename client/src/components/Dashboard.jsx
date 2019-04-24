@@ -192,7 +192,7 @@ class Dashboard extends Component {
                     style={this.state.styleChartButton}
                     onClick={this.toggleComponent}
                   >
-                    <p>MY MEAL</p>
+                    MY MEAL
                   </div>
                 </div>
               </div>

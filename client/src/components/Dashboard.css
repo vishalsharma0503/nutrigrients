@@ -244,9 +244,10 @@
 .chart_button {
   position: absolute;
   font-family: "Nunito", sans-serif;
-  max-height: 40px;
-  max-width: 140px;
-  width: 50%;
+  height: fit-content;
+  width: fit-content;
+  /* max-height: 40px;
+  max-width: 140px; */
   cursor: pointer;
   text-align: center;
   border: 0px solid black;
