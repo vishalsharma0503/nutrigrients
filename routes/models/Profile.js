@@ -63,6 +63,7 @@ const ProfileSchema = new Schema({
     type:String,
     required:false
   },
+  followers:[],
   date:{
     type:Date,
     default:Date.now

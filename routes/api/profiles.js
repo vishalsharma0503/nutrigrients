@@ -113,7 +113,6 @@ router.post(
     if (req.body.twitter) profileFields.twitter = req.body.twitter;
     if (req.body.youtube) profileFields.youtube = req.body.youtube;
 
-
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
         if (
@@ -150,6 +149,24 @@ router.post(
         });
       }
     });
+  }
+);
+
+router.options("/follow", cors());
+router.post(
+  "/follow",
+  cors(),
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const profileFields = {
+      followers :[]
+    };
+    profileFields.followers.push(req.body.fname);
+    Profile.findOneAndUpdate(
+      { user: req.user.id },
+      { $set: profileFields },
+      { new: true }
+    ).then(profile => res.json(profile));
   }
 );
 
