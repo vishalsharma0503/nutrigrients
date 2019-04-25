@@ -1,4 +1,4 @@
-module.exports = function plate(data,profileFields) {
+module.exports = function plate(data, profileFields) {
   const BMI = Math.ceil(data.weight / (data.height * data.height)); //kg/m*m
   profileFields.idealPlate = {};
   if (0 < BMI && BMI <= 19) {
