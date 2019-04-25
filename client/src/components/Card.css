@@ -45,9 +45,30 @@
   padding: 10px 25px 10px 25px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+.follow_button {
+  z-index: 5;
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 20px;
+  font-size: 110%;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  background: linear-gradient(to right, rgb(15, 15, 15), rgb(43, 43, 43));
+  padding: 8px 20px 8px 20px;
+}
 .card_layer:hover .overlay_button {
   display: block;
   transform: 1s ease;
+}
+.card_layer:hover .follow_button {
+  display: block;
 }
 .card_grid {
   z-index: 2;

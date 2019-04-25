@@ -14,7 +14,10 @@ class ViewPost extends Component {
   pushIntoPosts = (posts, responseJson, count) => {
     for (var i = 0; i < count; i++) {
       posts.push(
-        <PostCard username={responseJson[i].username} post={responseJson[i].post} />
+        <PostCard
+          username={responseJson[i].username}
+          post={responseJson[i].post}
+        />
       );
     }
   };
@@ -30,7 +33,7 @@ class ViewPost extends Component {
         this.setState({ posts: posts });
       })
       .catch(err => {
-        console.log("KUCH BHI DEDE"+err)
+        console.log("error: " + err);
       });
   }
   render() {

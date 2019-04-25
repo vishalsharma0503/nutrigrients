@@ -60,7 +60,7 @@ class FitHerd extends Component {
             />
             <span className="heading1">THE FIT HERD</span>
             <div className="sub-heading1">
-              <p>This is the sub heading.</p>
+              <p>Fitness is a Journey not a Destination !</p>
             </div>
           </div>
         </div>

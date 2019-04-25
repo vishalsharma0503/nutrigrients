@@ -16,6 +16,7 @@ class Card extends Component {
           <br />
           Stories
         </div>
+        <div className="follow_button">Follow</div>
         <span className="card_grid">
           <span className="card_section1">
             <div className="card_profile_pic_container">
