@@ -5,7 +5,7 @@ const UserPost = require("../models/UserPost");
 const validatePostInput = require("../validation/post");
 const cors = require("cors");
 
-//Route POST Create/Edit posts
+//Route POST Create posts
 router.options("/", cors());
 router.post(
   "/",
@@ -17,7 +17,9 @@ router.post(
       return res.status(400).json(errors);
     }
     console.log(req.body);
-    const postFields = {};
+    const postFields = {
+      comments:[]
+    };
     postFields.user = req.user.id;
     postFields.username = req.user.name;
     postFields.post = req.body.post;

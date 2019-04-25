@@ -112,6 +112,7 @@ router.post(
     if (req.body.instagram) profileFields.instagram = req.body.instagram;
     if (req.body.twitter) profileFields.twitter = req.body.twitter;
     if (req.body.youtube) profileFields.youtube = req.body.youtube;
+    profileFields.followers = [];
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
@@ -158,15 +159,22 @@ router.post(
   cors(),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const profileFields = {
-      followers :[]
-    };
-    profileFields.followers.push(req.body.fname);
-    Profile.findOneAndUpdate(
-      { user: req.user.id },
-      { $set: profileFields },
-      { new: true }
-    ).then(profile => res.json(profile));
+    Profile.findOne({ user: req.body.fid }).then(profile => {
+      console.log(req)
+      profile.followers.push(req.body.username);
+      Profile.findOneAndUpdate(
+        { user: req.body.fid },
+        { $set: profile},
+        { new: true }
+      ).then(profile => { res.json(profile)});
+    });
+
+    // Profile.findOneAndUpdate(
+    //   { user: req.body.fid },
+    //   { $set: profileFields },
+    //   { new: true }
+    // ).then(profile => res.json(profile)
+    // );
   }
 );
 
